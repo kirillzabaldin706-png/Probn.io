@@ -1,0 +1,2988 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Домашняя кухня | Еда с любовью</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Merriweather:wght@300;400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* Base Styles */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+:root {
+--primary-color: #e74c3c;
+--secondary-color: #f39c12;
+--dark-color: #2c3e50;
+--light-color: #ecf0f1;
+--white: #ffffff;
+--gray: #95a5a6;
+--light-gray: #f8f9fa;
+--shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+--shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.15);
+--transition: all 0.3s ease;
+}
+body {
+font-family: 'Merriweather', serif;
+line-height: 1.6;
+color: var(--dark-color);
+background-color: var(--light-gray);
+}
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+}
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+font-family: 'Poppins', sans-serif;
+font-weight: 700;
+line-height: 1.3;
+}
+h1 {
+font-size: 3rem;
+}
+h2 {
+font-size: 2.5rem;
+margin-bottom: 1rem;
+}
+h3 {
+font-size: 1.75rem;
+margin-bottom: 0.5rem;
+}
+p {
+margin-bottom: 1rem;
+}
+/* Buttons */
+.btn {
+display: inline-block;
+padding: 12px 30px;
+background-color: var(--primary-color);
+color: var(--white);
+text-decoration: none;
+border-radius: 50px;
+font-family: 'Poppins', sans-serif;
+font-weight: 600;
+transition: var(--transition);
+border: none;
+cursor: pointer;
+font-size: 1rem;
+}
+.btn:hover {
+background-color: #c0392b;
+transform: translateY(-2px);
+box-shadow: var(--shadow-hover);
+}
+.btn-secondary {
+background-color: var(--secondary-color);
+margin-left: 15px;
+}
+.btn-secondary:hover {
+background-color: #e67e22;
+}
+.btn-block {
+width: 100%;
+text-align: center;
+}
+.btn-add {
+background-color: var(--secondary-color);
+color: var(--white);
+padding: 8px 20px;
+border-radius: 30px;
+font-family: 'Poppins', sans-serif;
+font-weight: 600;
+border: none;
+cursor: pointer;
+transition: var(--transition);
+}
+.btn-add:hover {
+background-color: #e67e22;
+transform: scale(1.05);
+}
+/* Header */
+.header {
+background-color: var(--white);
+box-shadow: var(--shadow);
+position: fixed;
+width: 100%;
+top: 0;
+z-index: 1000;
+}
+.header-content {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 20px 0;
+}
+.logo {
+display: flex;
+align-items: center;
+}
+.logo-icon {
+font-size: 2rem;
+margin-right: 10px;
+}
+.logo h1 {
+font-size: 1.8rem;
+color: var(--primary-color);
+}
+.nav ul {
+display: flex;
+list-style: none;
+}
+.nav ul li {
+margin-left: 30px;
+}
+.nav ul li a {
+text-decoration: none;
+color: var(--dark-color);
+font-family: 'Poppins', sans-serif;
+font-weight: 500;
+transition: var(--transition);
+position: relative;
+}
+.nav ul li a:hover,
+.nav ul li a.active {
+color: var(--primary-color);
+}
+.nav ul li a::after {
+content: '';
+position: absolute;
+bottom: -5px;
+left: 0;
+width: 0;
+height: 2px;
+background-color: var(--primary-color);
+transition: var(--transition);
+}
+.nav ul li a:hover::after,
+.nav ul li a.active::after {
+width: 100%;
+}
+.cart-icon {
+position: relative;
+cursor: pointer;
+font-size: 1.5rem;
+color: var(--dark-color);
+margin-left: 20px;
+transition: var(--transition);
+}
+.cart-icon:hover {
+color: var(--primary-color);
+}
+.cart-count {
+position: absolute;
+top: -10px;
+right: -10px;
+background-color: var(--primary-color);
+color: var(--white);
+border-radius: 50%;
+width: 20px;
+height: 20px;
+font-size: 0.8rem;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+/* Hero Section */
+.hero {
+background: linear-gradient(135deg, rgba(231, 76, 60, 0.9) 0%, rgba(243, 156, 18, 0.85) 100%), url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=1200');
+background-size: cover;
+background-position: center;
+color: var(--white);
+padding: 180px 0 100px;
+text-align: center;
+}
+.hero-content {
+max-width: 800px;
+margin: 0 auto;
+}
+.hero h2 {
+font-size: 3.5rem;
+margin-bottom: 20px;
+font-family: 'Dancing Script', cursive;
+}
+.hero p {
+font-size: 1.3rem;
+margin-bottom: 30px;
+opacity: 0.95;
+}
+.hero-buttons {
+display: flex;
+justify-content: center;
+gap: 15px;
+margin-top: 30px;
+}
+/* About Section */
+.about {
+padding: 100px 0;
+background-color: var(--white);
+}
+.section-title {
+text-align: center;
+margin-bottom: 60px;
+}
+.section-title h2 {
+color: var(--primary-color);
+position: relative;
+display: inline-block;
+padding-bottom: 15px;
+}
+.section-title h2::after {
+content: '';
+position: absolute;
+bottom: 0;
+left: 50%;
+transform: translateX(-50%);
+width: 80px;
+height: 3px;
+background-color: var(--secondary-color);
+border-radius: 3px;
+}
+.section-title p {
+color: var(--gray);
+font-size: 1.1rem;
+margin-top: 10px;
+}
+.about-content {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 50px;
+align-items: center;
+}
+.about-text p {
+margin-bottom: 20px;
+font-size: 1.1rem;
+}
+.about-stats {
+display: flex;
+justify-content: space-around;
+margin-top: 40px;
+}
+.stat-item {
+text-align: center;
+}
+.stat-number {
+font-size: 2.5rem;
+font-weight: 700;
+color: var(--primary-color);
+display: block;
+margin-bottom: 5px;
+}
+.stat-label {
+color: var(--gray);
+font-size: 0.9rem;
+}
+.about-image img {
+width: 100%;
+border-radius: 15px;
+box-shadow: var(--shadow-hover);
+}
+/* Menu Section */
+.menu {
+padding: 100px 0;
+background-color: var(--light-gray);
+}
+.menu-tabs {
+display: flex;
+justify-content: center;
+gap: 15px;
+margin-bottom: 40px;
+flex-wrap: wrap;
+}
+.tab-btn {
+padding: 10px 25px;
+background-color: var(--white);
+border: 2px solid var(--primary-color);
+color: var(--primary-color);
+border-radius: 50px;
+font-family: 'Poppins', sans-serif;
+font-weight: 600;
+cursor: pointer;
+transition: var(--transition);
+}
+.tab-btn:hover {
+background-color: var(--primary-color);
+color: var(--white);
+}
+.tab-btn.active {
+background-color: var(--primary-color);
+color: var(--white);
+}
+.menu-items {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+gap: 30px;
+}
+.menu-item {
+background-color: var(--white);
+border-radius: 15px;
+overflow: hidden;
+box-shadow: var(--shadow);
+transition: var(--transition);
+display: none;
+}
+.menu-item.active {
+display: grid;
+grid-template-columns: 150px 1fr;
+}
+.menu-item:hover {
+transform: translateY(-5px);
+box-shadow: var(--shadow-hover);
+}
+.menu-item-image {
+width: 150px;
+height: 150px;
+overflow: hidden;
+}
+.menu-item-image img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+.menu-item-info {
+padding: 20px;
+}
+.menu-item-desc {
+color: var(--gray);
+font-size: 0.95rem;
+margin-bottom: 15px;
+}
+.menu-item-price {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: 15px;
+}
+.price {
+font-size: 1.3rem;
+font-weight: 700;
+color: var(--primary-color);
+}
+/* Recipes Section */
+.recipes {
+padding: 100px 0;
+background-color: var(--white);
+}
+.recipes-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 30px;
+}
+.recipe-card {
+background-color: var(--light-gray);
+border-radius: 15px;
+overflow: hidden;
+box-shadow: var(--shadow);
+transition: var(--transition);
+}
+.recipe-card:hover {
+transform: translateY(-5px);
+box-shadow: var(--shadow-hover);
+}
+.recipe-image {
+height: 200px;
+overflow: hidden;
+}
+.recipe-image img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+.recipe-content {
+padding: 25px;
+}
+.recipe-time {
+color: var(--secondary-color);
+font-weight: 600;
+margin-bottom: 10px;
+}
+.recipe-desc {
+color: var(--gray);
+margin-bottom: 20px;
+}
+.recipe-link {
+display: inline-block;
+color: var(--primary-color);
+text-decoration: none;
+font-weight: 600;
+transition: var(--transition);
+background: none;
+border: none;
+padding: 0;
+cursor: pointer;
+font-family: 'Poppins', sans-serif;
+}
+.recipe-link:hover {
+color: #c0392b;
+text-decoration: underline;
+}
+
+/* Modal Styles */
+.modal {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.8);
+z-index: 2000;
+justify-content: center;
+align-items: center;
+}
+.modal.active {
+display: flex;
+animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn {
+from { opacity: 0; }
+to { opacity: 1; }
+}
+.modal-content {
+background-color: var(--white);
+border-radius: 20px;
+max-width: 800px;
+width: 90%;
+max-height: 90vh;
+overflow-y: auto;
+position: relative;
+box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+.modal-header {
+background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+color: var(--white);
+padding: 30px;
+text-align: center;
+border-radius: 20px 20px 0 0;
+}
+.modal-header h2 {
+font-size: 2rem;
+margin-bottom: 10px;
+}
+.modal-header .recipe-time {
+font-size: 1.1rem;
+opacity: 0.9;
+margin: 0;
+}
+.modal-close {
+position: absolute;
+top: 15px;
+right: 20px;
+font-size: 1.8rem;
+color: var(--white);
+background: none;
+border: none;
+cursor: pointer;
+transition: var(--transition);
+padding: 5px 10px;
+}
+.modal-close:hover {
+color: var(--light-color);
+transform: rotate(90deg);
+}
+.modal-body {
+padding: 30px;
+}
+.recipe-ingredients {
+margin-bottom: 25px;
+}
+.recipe-ingredients h3,
+.recipe-instructions h3 {
+color: var(--primary-color);
+margin-bottom: 15px;
+font-size: 1.5rem;
+}
+.recipe-ingredients ul {
+list-style: none;
+padding-left: 0;
+}
+.recipe-ingredients li {
+padding: 8px 0;
+padding-left: 25px;
+position: relative;
+border-bottom: 1px dashed #eee;
+margin-bottom: 5px;
+}
+.recipe-ingredients li:last-child {
+border-bottom: none;
+}
+.recipe-ingredients li::before {
+content: '•';
+position: absolute;
+left: 0;
+color: var(--secondary-color);
+font-size: 1.5rem;
+}
+.recipe-instructions {
+margin-bottom: 25px;
+}
+.recipe-instructions ol {
+padding-left: 20px;
+}
+.recipe-instructions li {
+margin-bottom: 12px;
+line-height: 1.7;
+}
+.recipe-tips {
+background-color: var(--light-gray);
+padding: 20px;
+border-radius: 10px;
+margin-top: 20px;
+border-left: 4px solid var(--secondary-color);
+}
+.recipe-tips h4 {
+color: var(--secondary-color);
+margin-bottom: 10px;
+}
+.recipe-tips ul {
+margin-bottom: 0;
+}
+.recipe-image-large {
+width: 100%;
+height: 300px;
+object-fit: cover;
+border-radius: 10px;
+margin-bottom: 25px;
+}
+
+/* Testimonials Section */
+.testimonials {
+padding: 100px 0;
+background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+.testimonials-slider {
+max-width: 800px;
+margin: 0 auto;
+}
+.testimonial-item {
+background-color: var(--white);
+padding: 40px;
+border-radius: 15px;
+box-shadow: var(--shadow);
+text-align: center;
+display: none;
+}
+.testimonial-item.active {
+display: block;
+animation: fadeIn 0.5s ease;
+}
+@keyframes fadeIn {
+from {
+opacity: 0;
+transform: translateY(20px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+.testimonial-content p {
+font-style: italic;
+font-size: 1.1rem;
+line-height: 1.8;
+color: var(--dark-color);
+position: relative;
+padding: 20px;
+}
+.testimonial-content p::before,
+.testimonial-content p::after {
+content: '"';
+font-size: 3rem;
+color: var(--primary-color);
+opacity: 0.3;
+position: absolute;
+}
+.testimonial-content p::before {
+top: -20px;
+left: -10px;
+}
+.testimonial-content p::after {
+bottom: -40px;
+right: -10px;
+}
+.testimonial-author {
+display: flex;
+align-items: center;
+justify-content: center;
+margin-top: 30px;
+padding-top: 20px;
+border-top: 2px solid var(--light-gray);
+}
+.author-avatar {
+width: 60px;
+height: 60px;
+background-color: var(--primary-color);
+color: var(--white);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1.8rem;
+font-weight: bold;
+margin-right: 15px;
+}
+.author-info h4 {
+color: var(--dark-color);
+margin-bottom: 5px;
+}
+.author-info p {
+color: var(--gray);
+font-size: 0.9rem;
+}
+/* Contact Section */
+.contact {
+padding: 100px 0;
+background-color: var(--white);
+}
+.contact-content {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 50px;
+}
+.contact-info {
+display: flex;
+flex-direction: column;
+gap: 30px;
+}
+.info-item {
+display: flex;
+align-items: flex-start;
+gap: 15px;
+}
+.info-icon {
+font-size: 2rem;
+}
+.info-item h4 {
+color: var(--primary-color);
+margin-bottom: 5px;
+}
+.info-item p {
+color: var(--gray);
+margin-bottom: 0;
+}
+.contact-form {
+background-color: var(--light-gray);
+padding: 40px;
+border-radius: 15px;
+box-shadow: var(--shadow);
+}
+.form-group {
+margin-bottom: 20px;
+}
+.form-group label {
+display: block;
+margin-bottom: 8px;
+font-weight: 600;
+color: var(--dark-color);
+}
+.form-group input,
+.form-group textarea {
+width: 100%;
+padding: 12px 15px;
+border: 2px solid #ddd;
+border-radius: 8px;
+font-family: 'Merriweather', serif;
+font-size: 1rem;
+transition: var(--transition);
+}
+.form-group input:focus,
+.form-group textarea:focus {
+outline: none;
+border-color: var(--primary-color);
+box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+/* Admin button */
+.admin-btn {
+background: none;
+border: 2px solid var(--gray);
+color: var(--gray);
+border-radius: 50%;
+width: 38px;
+height: 38px;
+font-size: 0.95rem;
+cursor: pointer;
+margin-left: 12px;
+transition: var(--transition);
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.admin-btn:hover { border-color: var(--primary-color); color: var(--primary-color); }
+.admin-login-overlay {
+display: none; position: fixed; top:0; left:0; width:100%; height:100%;
+background: rgba(0,0,0,0.7); z-index: 3000; justify-content:center; align-items:center;
+}
+.admin-login-overlay.active { display: flex; }
+.admin-login-box {
+background: var(--white); border-radius: 16px; padding: 40px; width: 360px;
+box-shadow: 0 10px 40px rgba(0,0,0,0.3); position: relative; text-align: center;
+}
+.admin-login-box h3 { color: var(--dark-color); margin-bottom: 8px; font-size: 1.4rem; }
+.admin-login-box p { color: var(--gray); font-size: 0.9rem; margin-bottom: 25px; }
+.admin-login-box input {
+width: 100%; padding: 12px 15px; border: 2px solid #ddd; border-radius: 8px;
+font-size: 1rem; font-family: 'Merriweather', serif; transition: var(--transition); margin-bottom: 15px;
+}
+.admin-login-box input:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(231,76,60,0.1); }
+.admin-login-error { color: var(--primary-color); font-size: 0.88rem; margin-bottom: 10px; display: none; }
+.admin-close-btn { position: absolute; top: 12px; right: 16px; background: none; border: none; font-size: 1.5rem; color: var(--gray); cursor: pointer; }
+.admin-panel-overlay {
+display: none; position: fixed; top:0; left:0; width:100%; height:100%;
+background: rgba(0,0,0,0.6); z-index: 3000; justify-content:center; align-items:flex-start;
+padding: 80px 20px 20px; overflow-y: auto;
+}
+.admin-panel-overlay.active { display: flex; }
+.admin-panel { background: var(--white); border-radius: 16px; width: 100%; max-width: 900px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); overflow: hidden; }
+.admin-panel-header {
+background: linear-gradient(135deg, var(--dark-color) 0%, #1a2530 100%);
+color: var(--white); padding: 25px 30px; display: flex; justify-content: space-between; align-items: center;
+}
+.admin-panel-header h2 { font-size: 1.4rem; margin: 0; }
+.admin-logout-btn {
+background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+color: var(--white); padding: 8px 18px; border-radius: 8px; cursor: pointer;
+font-family: 'Poppins', sans-serif; font-size: 0.9rem; transition: var(--transition);
+}
+.admin-logout-btn:hover { background: rgba(255,255,255,0.25); }
+.admin-body { padding: 30px; }
+.admin-tabs { display: flex; gap: 10px; margin-bottom: 25px; border-bottom: 2px solid var(--light-gray); padding-bottom: 10px; flex-wrap: wrap; }
+.admin-tab {
+padding: 8px 20px; border-radius: 8px 8px 0 0; border: none; background: none;
+font-family: 'Poppins', sans-serif; font-weight: 600; color: var(--gray); cursor: pointer;
+transition: var(--transition); font-size: 0.95rem;
+}
+.admin-tab.active { background: var(--primary-color); color: var(--white); }
+.admin-section { display: none; }
+.admin-section.active { display: block; }
+.admin-card { background: var(--light-gray); border-radius: 12px; padding: 20px; margin-bottom: 15px; }
+.admin-card h4 { margin-bottom: 12px; color: var(--dark-color); font-size: 1rem; }
+.admin-input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+.admin-input-row.single { grid-template-columns: 1fr; }
+.admin-card input, .admin-card textarea, .admin-card select {
+width: 100%; padding: 10px 12px; border: 2px solid #ddd; border-radius: 8px;
+font-family: 'Merriweather', serif; font-size: 0.9rem; transition: var(--transition); background: var(--white);
+}
+.admin-card input:focus, .admin-card textarea:focus, .admin-card select:focus { outline: none; border-color: var(--primary-color); }
+.admin-card label { font-size: 0.82rem; color: var(--gray); font-weight: 600; display: block; margin-bottom: 4px; font-family: 'Poppins', sans-serif; }
+.admin-save-btn {
+background: var(--primary-color); color: var(--white); border: none;
+padding: 10px 24px; border-radius: 8px; font-family: 'Poppins', sans-serif;
+font-weight: 600; cursor: pointer; transition: var(--transition);
+}
+.admin-save-btn:hover { background: #c0392b; }
+.admin-info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-bottom: 20px; }
+.admin-stat-card { background: var(--white); border-radius: 12px; padding: 20px; text-align: center; border: 2px solid var(--light-gray); }
+.admin-stat-card .stat-val { font-size: 2rem; font-weight: 700; color: var(--primary-color); display: block; }
+.admin-stat-card .stat-lbl { color: var(--gray); font-size: 0.85rem; font-family: 'Poppins', sans-serif; }
+.admin-success { color: #27ae60; font-size: 0.88rem; margin-top: 8px; display: none; }
+/* Footer */
+.footer {
+background: linear-gradient(135deg, var(--dark-color) 0%, #1a2530 100%);
+color: var(--white);
+padding: 60px 0 20px;
+}
+.footer-content {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 40px;
+margin-bottom: 40px;
+}
+.footer-logo h3 {
+color: var(--white);
+margin-bottom: 10px;
+}
+.footer-logo p {
+color: var(--gray);
+opacity: 0.8;
+}
+.footer-links h4,
+.footer-social h4 {
+color: var(--white);
+margin-bottom: 20px;
+font-size: 1.2rem;
+}
+.footer-links ul {
+list-style: none;
+}
+.footer-links ul li {
+margin-bottom: 10px;
+}
+.footer-links ul li a {
+color: var(--gray);
+text-decoration: none;
+transition: var(--transition);
+}
+.footer-links ul li a:hover {
+color: var(--primary-color);
+}
+.footer-social .social-icons {
+display: flex;
+flex-direction: column;
+gap: 15px;
+}
+.footer-social .social-icons a {
+display: flex;
+align-items: center;
+gap: 10px;
+color: var(--gray);
+text-decoration: none;
+transition: var(--transition);
+}
+.footer-social .social-icons a:hover {
+color: var(--primary-color);
+}
+.footer-social .social-icons span {
+font-size: 1.5rem;
+}
+/* Legal document modal */
+.legal-modal .modal-content {
+max-width: 900px;
+}
+.legal-modal .modal-header {
+background: linear-gradient(135deg, var(--dark-color) 0%, #1a2530 100%);
+}
+.legal-body {
+padding: 40px;
+font-size: 0.95rem;
+line-height: 1.8;
+}
+.legal-body h1 {
+font-size: 1.6rem;
+color: var(--primary-color);
+margin-bottom: 5px;
+text-align: center;
+}
+.legal-body .legal-meta {
+text-align: center;
+color: var(--gray);
+font-size: 0.85rem;
+margin-bottom: 30px;
+}
+.legal-body h2 {
+font-size: 1.1rem;
+color: var(--dark-color);
+margin: 25px 0 10px;
+border-left: 3px solid var(--primary-color);
+padding-left: 10px;
+}
+.legal-body h3 {
+font-size: 1rem;
+color: var(--dark-color);
+margin: 15px 0 8px;
+}
+.legal-body p {
+color: #555;
+margin-bottom: 10px;
+}
+.legal-body strong {
+color: var(--dark-color);
+}
+.legal-footer-link {
+color: var(--gray);
+text-decoration: none;
+font-size: 0.9rem;
+cursor: pointer;
+background: none;
+border: none;
+font-family: 'Poppins', sans-serif;
+transition: var(--transition);
+}
+.legal-footer-link:hover {
+color: var(--primary-color);
+}
+.footer-legal {
+display: flex;
+gap: 20px;
+justify-content: center;
+margin-top: 10px;
+flex-wrap: wrap;
+}
+.footer-bottom {
+text-align: center;
+padding-top: 30px;
+border-top: 1px solid rgba(255, 255, 255, 0.1);
+color: var(--gray);
+font-size: 0.9rem;
+}
+/* Shopping Cart Modal */
+.cart-modal {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.7);
+z-index: 3000;
+justify-content: center;
+align-items: center;
+}
+.cart-modal.active {
+display: flex;
+animation: fadeIn 0.3s ease;
+}
+.cart-content {
+background-color: var(--white);
+border-radius: 20px;
+width: 90%;
+max-width: 600px;
+max-height: 90vh;
+overflow-y: auto;
+position: relative;
+box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+.cart-header {
+background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+color: var(--white);
+padding: 25px;
+text-align: center;
+border-radius: 20px 20px 0 0;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.cart-header h2 {
+margin: 0;
+font-size: 1.8rem;
+}
+.cart-close {
+background: none;
+border: none;
+color: var(--white);
+font-size: 2rem;
+cursor: pointer;
+transition: var(--transition);
+}
+.cart-close:hover {
+transform: rotate(90deg);
+}
+.cart-body {
+padding: 25px;
+}
+.cart-empty {
+text-align: center;
+padding: 40px 20px;
+color: var(--gray);
+}
+.cart-empty i {
+font-size: 4rem;
+margin-bottom: 20px;
+opacity: 0.3;
+}
+.cart-items {
+margin-bottom: 20px;
+}
+.cart-item {
+display: grid;
+grid-template-columns: 80px 1fr auto;
+gap: 15px;
+padding: 15px;
+border-bottom: 1px solid #eee;
+align-items: center;
+}
+.cart-item:last-child {
+border-bottom: none;
+}
+.cart-item-img {
+width: 80px;
+height: 80px;
+border-radius: 10px;
+overflow: hidden;
+}
+.cart-item-img img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+.cart-item-info h4 {
+margin-bottom: 5px;
+color: var(--dark-color);
+font-size: 1.1rem;
+}
+.cart-item-price {
+color: var(--primary-color);
+font-weight: 700;
+font-size: 1.1rem;
+}
+.cart-item-quantity {
+display: flex;
+align-items: center;
+gap: 10px;
+margin-top: 5px;
+}
+.quantity-btn {
+width: 30px;
+height: 30px;
+border: 2px solid var(--primary-color);
+background-color: var(--white);
+color: var(--primary-color);
+border-radius: 8px;
+font-weight: 700;
+cursor: pointer;
+transition: var(--transition);
+}
+.quantity-btn:hover {
+background-color: var(--primary-color);
+color: var(--white);
+}
+.quantity-btn:disabled {
+opacity: 0.5;
+cursor: not-allowed;
+}
+.quantity-display {
+min-width: 30px;
+text-align: center;
+font-weight: 700;
+font-size: 1.1rem;
+}
+.remove-item {
+background: none;
+border: none;
+color: #e74c3c;
+font-size: 1.2rem;
+cursor: pointer;
+transition: var(--transition);
+padding: 5px;
+}
+.remove-item:hover {
+color: #c0392b;
+transform: scale(1.2);
+}
+.cart-total {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 20px;
+background-color: var(--light-gray);
+border-radius: 10px;
+margin-bottom: 20px;
+}
+.cart-total span {
+font-size: 1.2rem;
+font-weight: 600;
+}
+.cart-total strong {
+font-size: 1.5rem;
+color: var(--primary-color);
+}
+.cart-actions {
+display: flex;
+flex-direction: column;
+gap: 15px;
+}
+.payment-methods {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 10px;
+margin-bottom: 15px;
+}
+.payment-btn {
+padding: 15px;
+border: 2px solid #ddd;
+border-radius: 10px;
+background-color: var(--white);
+color: var(--dark-color);
+font-family: 'Poppins', sans-serif;
+font-weight: 600;
+cursor: pointer;
+transition: var(--transition);
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+}
+.payment-btn:hover,
+.payment-btn.active {
+border-color: var(--primary-color);
+background-color: rgba(231, 76, 60, 0.1);
+color: var(--primary-color);
+}
+.payment-btn i {
+font-size: 1.5rem;
+}
+.payment-btn.card i {
+color: #3498db;
+}
+.payment-btn.sbp i {
+color: #2ecc71;
+}
+.payment-form {
+margin-bottom: 15px;
+display: none;
+}
+.payment-form.active {
+display: block;
+}
+.form-group {
+margin-bottom: 15px;
+}
+.form-group label {
+display: block;
+margin-bottom: 8px;
+font-weight: 600;
+color: var(--dark-color);
+font-size: 0.95rem;
+}
+.form-group input {
+width: 100%;
+padding: 12px 15px;
+border: 2px solid #ddd;
+border-radius: 8px;
+font-family: 'Poppins', sans-serif;
+font-size: 1rem;
+transition: var(--transition);
+}
+.form-group input:focus {
+outline: none;
+border-color: var(--primary-color);
+box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+.form-group input::placeholder {
+color: var(--gray);
+}
+.card-number {
+font-family: 'Courier New', monospace;
+letter-spacing: 2px;
+font-size: 1.1rem;
+}
+.success-modal {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.7);
+z-index: 4000;
+justify-content: center;
+align-items: center;
+}
+.success-modal.active {
+display: flex;
+animation: fadeIn 0.3s ease;
+}
+.success-content {
+background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+color: var(--white);
+padding: 40px;
+border-radius: 20px;
+text-align: center;
+max-width: 400px;
+box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+.success-icon {
+font-size: 4rem;
+margin-bottom: 20px;
+animation: bounce 0.5s ease;
+}
+@keyframes bounce {
+0%, 100% { transform: translateY(0); }
+50% { transform: translateY(-10px); }
+}
+.success-content h3 {
+font-size: 1.8rem;
+margin-bottom: 10px;
+}
+.success-content p {
+font-size: 1.1rem;
+opacity: 0.9;
+margin-bottom: 25px;
+}
+.success-btn {
+background-color: var(--white);
+color: #27ae60;
+padding: 12px 30px;
+border: none;
+border-radius: 50px;
+font-family: 'Poppins', sans-serif;
+font-weight: 600;
+font-size: 1rem;
+cursor: pointer;
+transition: var(--transition);
+}
+.success-btn:hover {
+transform: scale(1.05);
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.checkout-btn {
+padding: 15px;
+font-size: 1.1rem;
+background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+}
+/* Responsive Design */
+@media (max-width: 992px) {
+.about-content,
+.contact-content,
+.cart-item {
+grid-template-columns: 1fr;
+}
+.about-image {
+order: -1;
+}
+.hero h2 {
+font-size: 2.8rem;
+}
+.cart-item-img {
+width: 100%;
+height: 150px;
+}
+}
+@media (max-width: 768px) {
+.nav ul {
+display: none;
+}
+.hero h2 {
+font-size: 2.3rem;
+}
+.hero p {
+font-size: 1.1rem;
+}
+.hero-buttons {
+flex-direction: column;
+gap: 10px;
+}
+.btn-secondary {
+margin-left: 0;
+}
+.menu-items {
+grid-template-columns: 1fr;
+}
+.menu-item.active {
+grid-template-columns: 1fr;
+}
+.menu-item-image {
+width: 100%;
+height: 200px;
+}
+.section-title h2 {
+font-size: 2rem;
+}
+.payment-methods {
+grid-template-columns: 1fr;
+}
+}
+@media (max-width: 480px) {
+.header-content {
+flex-direction: column;
+padding: 15px 0;
+}
+.logo h1 {
+font-size: 1.5rem;
+}
+.hero {
+padding: 150px 0 80px;
+}
+.hero h2 {
+font-size: 2rem;
+}
+.section-title h2 {
+font-size: 1.8rem;
+}
+.contact-form {
+padding: 25px;
+}
+.cart-content,
+.modal-content {
+width: 95%;
+}
+.cart-item {
+grid-template-columns: 1fr;
+text-align: center;
+}
+.quantity-display {
+font-size: 1.3rem;
+}
+}
+</style>
+</head>
+<body>
+<!-- Header -->
+<header class="header">
+<div class="container">
+<div class="header-content">
+<div class="logo">
+<span class="logo-icon">❤️</span>
+<h1>Домашняя кухня</h1>
+</div>
+<nav class="nav">
+<ul>
+<li><a href="#home" class="active">Главная</a></li>
+<li><a href="#about">О нас</a></li>
+<li><a href="#menu">Меню</a></li>
+<li><a href="#recipes">Рецепты</a></li>
+<li><a href="#contact">Контакты</a></li>
+</ul>
+</nav>
+<div class="cart-icon" id="cartBtn">
+<i class="fas fa-shopping-cart"></i>
+<span class="cart-count" id="cartCount">0</span>
+</div>
+<button class="admin-btn" id="adminLoginBtn" title="Панель администратора">
+<i class="fas fa-lock"></i>
+</button>
+</div>
+</div>
+</header>
+
+<!-- Shopping Cart Modal -->
+<div class="cart-modal" id="cartModal">
+<div class="cart-content">
+<div class="cart-header">
+<h2>Ваша корзина</h2>
+<button class="cart-close" id="closeCart">&times;</button>
+</div>
+<div class="cart-body">
+<div id="cartItemsContainer">
+<!-- Cart items will be inserted here dynamically -->
+</div>
+<div class="cart-total">
+<span>Итого:</span>
+<strong id="cartTotal">0 ₽</strong>
+</div>
+<div class="cart-actions">
+<div class="payment-methods">
+<button class="payment-btn active" data-method="card">
+<i class="fas fa-credit-card"></i>
+Карта
+</button>
+<button class="payment-btn" data-method="sbp">
+<i class="fas fa-money-bill-wave"></i>
+СБП
+</button>
+</div>
+<!-- Payment Form for Card -->
+<div class="payment-form active" id="cardForm">
+<div class="form-group">
+<label for="cardNumber">Номер карты</label>
+<input type="text" id="cardNumber" class="card-number" placeholder="1234 5678 9012 3456" maxlength="19">
+</div>
+</div>
+<!-- Payment Form for SBP -->
+<div class="payment-form" id="sbpForm">
+<div class="form-group">
+<label for="sbpPhone">Номер телефона</label>
+<input type="tel" id="sbpPhone" placeholder="79991234567" maxlength="11" inputmode="numeric">
+</div>
+</div>
+<button class="btn checkout-btn" id="checkoutBtn">
+Оформить заказ
+</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Success Modal -->
+<div class="success-modal" id="successModal">
+<div class="success-content">
+<div class="success-icon">
+<i class="fas fa-check-circle"></i>
+</div>
+<h3>Успешно привязано!</h3>
+<p id="successMessage">Ваша карта успешно привязана к аккаунту</p>
+<button class="success-btn" id="successClose">Понятно</button>
+</div>
+</div>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+<div class="container">
+<div class="hero-content">
+<div class="hero-text">
+<h2>Еда, приготовленная с любовью</h2>
+<p>Настоящая домашняя кухня, где каждое блюдо готовится с заботой и теплом, как в семье</p>
+<div class="hero-buttons">
+<a href="#menu" class="btn btn-primary">Наше меню</a>
+<a href="#contact" class="btn btn-secondary">Заказать</a>
+</div>
+</div>
+<div class="hero-image">
+
+</div>
+</div>
+</div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about">
+<div class="container">
+<div class="section-title">
+<h2>Наша история</h2>
+<p>Почему мы готовим с любовью</p>
+</div>
+<div class="about-content">
+<div class="about-text">
+<p>Все началось с бабушкиной кухни, где аромат свежей выпечки и вкусного борща наполнял дом теплом и уютом. Мы верим, что настоящая еда — это не просто питание, это способ выразить любовь и заботу.</p>
+<p>Каждое блюдо готовится вручную, с использованием только свежих и качественных ингредиентов. Мы не используем консерванты и искусственные добавки — только натуральные продукты и много любви.</p>
+<div class="about-stats">
+<div class="stat-item">
+<span class="stat-number">5</span>
+<span class="stat-label">лет опыта</span>
+</div>
+<div class="stat-item">
+<span class="stat-number">1000+</span>
+<span class="stat-label">счастливых клиентов</span>
+</div>
+<div class="stat-item">
+<span class="stat-number">50+</span>
+<span class="stat-label">рецептов</span>
+</div>
+</div>
+</div>
+<div class="about-image">
+<img src="images/kuhnya.jpg" alt="Наша кухня">
+</div>
+</div>
+</div>
+</section>
+
+<!-- Menu Section -->
+<section id="menu" class="menu">
+<div class="container">
+<div class="section-title">
+<h2>Наше меню</h2>
+<p>Домашние блюда с любовью</p>
+</div>
+<div class="menu-tabs">
+<button class="tab-btn active" data-tab="breakfast">Завтраки</button>
+<button class="tab-btn" data-tab="lunch">Обеды</button>
+<button class="tab-btn" data-tab="dinner">Ужины</button>
+<button class="tab-btn" data-tab="desserts">Десерты</button>
+</div>
+<div class="menu-items" id="menuItemsContainer">
+<div style="text-align:center;padding:40px;color:#999">Загружаем меню...</div>
+</div>
+</div>
+</section>
+
+<!-- Recipes Section -->
+<section id="recipes" class="recipes">
+<div class="container">
+<div class="section-title">
+<h2>Популярные рецепты</h2>
+<p>Приготовьте дома с любовью</p>
+</div>
+<div class="recipes-grid">
+<div class="recipe-card">
+<div class="recipe-image">
+<img src="images/borsh.jpg" alt="Борщ">
+</div>
+<div class="recipe-content">
+<h3>Борщ по-домашнему</h3>
+<p class="recipe-time">Время приготовления: 2 часа</p>
+<p class="recipe-desc">Настоящий домашний борщ с говядиной и сметаной</p>
+<button class="recipe-link" data-modal="borshch">Читать рецепт</button>
+</div>
+</div>
+<div class="recipe-card">
+<div class="recipe-image">
+<img src="images/bliny.jpg" alt="Блины">
+</div>
+<div class="recipe-content">
+<h3>Блины на молоке</h3>
+<p class="recipe-time">Время приготовления: 30 минут</p>
+<p class="recipe-desc">Пышные и ароматные блины как у бабушки</p>
+<button class="recipe-link" data-modal="bliny">Читать рецепт</button>
+</div>
+</div>
+<div class="recipe-card">
+<div class="recipe-image">
+<img src="images/pirog.jpg" alt="Пирог">
+</div>
+<div class="recipe-content">
+<h3>Яблочный пирог</h3>
+<p class="recipe-time">Время приготовления: 1 час</p>
+<p class="recipe-desc">Ароматный пирог с корицей и свежими яблоками</p>
+<button class="recipe-link" data-modal="pie">Читать рецепт</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Modal Borshch -->
+<div class="modal" id="borshch-modal">
+<div class="modal-content">
+<button class="modal-close">&times;</button>
+<div class="modal-header">
+<h2>Борщ по-домашнему</h2>
+<p class="recipe-time">Время приготовления: 2 часа | Порций: 6</p>
+</div>
+<div class="modal-body">
+<img src="images/borsh.jpg" alt="Борщ" class="recipe-image-large">
+<div class="recipe-ingredients">
+<h3>Ингредиенты:</h3>
+<ul>
+<li>Говядина на кости — 500 г</li>
+<li>Свекла — 2 шт (средние)</li>
+<li>Капуста белокочанная — 300 г</li>
+<li>Картофель — 3 шт</li>
+<li>Морковь — 1 шт</li>
+<li>Лук репчатый — 1 шт</li>
+<li>Томатная паста — 2 ст.л.</li>
+<li>Чеснок — 3 зубчика</li>
+<li>Лавровый лист — 2 шт</li>
+<li>Соль, перец — по вкусу</li>
+<li>Зелень (петрушка, укроп) — по вкусу</li>
+<li>Сметана — для подачи</li>
+<li>Растительное масло — для жарки</li>
+</ul>
+</div>
+<div class="recipe-instructions">
+<h3>Приготовление:</h3>
+<ol>
+<li><strong>Подготовка мяса:</strong> Говядину промыть, положить в кастрюлю, залить 3 литрами холодной воды. Довести до кипения, снять пену, убавить огонь и варить 1.5 часа.</li>
+<li><strong>Подготовка овощей:</strong> Очистить свеклу, морковь, лук и картофель. Свеклу натереть на крупной терке, морковь — на средней, лук мелко нарезать.</li>
+<li><strong>Обжарка овощей:</strong> На сковороде разогреть масло, обжарить лук 3 минуты, добавить морковь и свеклу. Жарить 10 минут, добавить томатную пасту и тушить еще 5 минут.</li>
+<li><strong>Картофель и капуста:</strong> Картофель нарезать кубиками, капусту — соломкой.</li>
+<li><strong>Сборка борща:</strong> В кипящий бульон добавить картофель, варить 10 минут. Добавить капусту, варить еще 10 минут.</li>
+<li><strong>Финальный этап:</strong> Добавить зажарку, лавровый лист, соль и перец. Варить 15 минут на маленьком огне.</li>
+<li><strong>Заправка:</strong> Чеснок пропустить через пресс, смешать с зеленью, добавить в борщ за 5 минут до готовности.</li>
+</ol>
+</div>
+<div class="recipe-tips">
+<h4>💡 Советы:</h4>
+<ul>
+<li>Для насыщенного цвета добавьте в борщ немного свекольного сока за 5 минут до готовности</li>
+<li>Подавайте со сметаной и чесночными пампушками</li>
+<li>Борщ лучше всего настаивается — оставьте его на 30 минут после готовности</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Modal Bliny -->
+<div class="modal" id="bliny-modal">
+<div class="modal-content">
+<button class="modal-close">&times;</button>
+<div class="modal-header">
+<h2>Блины на молоке</h2>
+<p class="recipe-time">Время приготовления: 30 минут | Порций: 4</p>
+</div>
+<div class="modal-body">
+<img src="images/bliny.jpg" alt="Блины" class="recipe-image-large">
+<div class="recipe-ingredients">
+<h3>Ингредиенты:</h3>
+<ul>
+<li>Молоко — 500 мл</li>
+<li>Яйца — 2 шт</li>
+<li>Мука пшеничная — 250 г</li>
+<li>Сахар — 2 ст.л.</li>
+<li>Соль — 0.5 ч.л.</li>
+<li>Сода — 0.5 ч.л. (или разрыхлитель 1 ч.л.)</li>
+<li>Растительное масло — 3 ст.л. + для смазывания</li>
+<li>Ванильный сахар — по желанию</li>
+</ul>
+</div>
+<div class="recipe-instructions">
+<h3>Приготовление:</h3>
+<ol>
+<li><strong>Подготовка:</strong> Молоко слегка подогреть (не кипятить), чтобы оно было теплым.</li>
+<li><strong>Тесто:</strong> В глубокой миске взбить яйца с сахаром и солью до однородности.</li>
+<li><strong>Добавление молока:</strong> Постепенно влить теплое молоко, постоянно помешивая.</li>
+<li><strong>Мука:</strong> Просеять муку через сито, постепенно добавлять в жидкую смесь, непрерывно помешивая венчиком, чтобы не было комочков.</li>
+<li><strong>Сода:</strong> Добавить соду (погасить уксусом) или разрыхлитель, влить растительное масло. Хорошо перемешать.</li>
+<li><strong>Настаивание:</strong> Дать тесту отдохнуть 15-20 минут.</li>
+<li><strong>Выпекание:</strong> Разогреть сковороду, смазать маслом. Налить половником тесто, распределить по дну тонким слоем.</li>
+<li><strong>Жарка:</strong> Жарить на среднем огне до золотистого цвета с обеих сторон (примерно по 1-2 минуты).</li>
+</ol>
+</div>
+<div class="recipe-tips">
+<h4>💡 Советы:</h4>
+<ul>
+<li>Тесто должно быть консистенции сметаны — не слишком густым и не слишком жидким</li>
+<li>Первый блин часто получается комом — это нормально!</li>
+<li>Подавайте со сметаной, вареньем, медом, творогом или икрой</li>
+<li>Готовые блины смазывайте сливочным маслом, чтобы они не подсыхали</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Modal Pie -->
+<div class="modal" id="pie-modal">
+<div class="modal-content">
+<button class="modal-close">&times;</button>
+<div class="modal-header">
+<h2>Яблочный пирог</h2>
+<p class="recipe-time">Время приготовления: 1 час | Порций: 8</p>
+</div>
+<div class="modal-body">
+<img src="images/pirog.jpg" alt="Пирог" class="recipe-image-large">
+<div class="recipe-ingredients">
+<h3>Ингредиенты:</h3>
+<h4>Для теста:</h4>
+<ul>
+<li>Мука пшеничная — 300 г</li>
+<li>Сливочное масло — 200 г (холодное)</li>
+<li>Сахар — 100 г</li>
+<li>Яйцо — 1 шт</li>
+<li>Соль — щепотка</li>
+<li>Разрыхлитель — 1 ч.л.</li>
+</ul>
+<h4>Для начинки:</h4>
+<ul>
+<li>Яблоки кисло-сладкие — 5-6 шт</li>
+<li>Сахар — 80 г</li>
+<li>Корица — 1 ч.л.</li>
+<li>Ванильный сахар — 1 пакетик</li>
+<li>Лимонный сок — 1 ст.л.</li>
+<li>Крахмал — 1 ст.л. (для загущения)</li>
+</ul>
+</div>
+<div class="recipe-instructions">
+<h3>Приготовление:</h3>
+<ol>
+<li><strong>Тесто:</strong> Масло нарезать кубиками, смешать с мукой, перетереть в крошку. Добавить сахар, соль, разрыхлитель, яйцо. Замесить тесто, разделить на 2 части (2/3 и 1/3).</li>
+<li><strong>Охлаждение:</strong> Завернуть тесто в пленку и убрать в холодильник на 30 минут.</li>
+<li><strong>Начинка:</strong> Яблоки очистить от кожуры и сердцевины, нарезать тонкими ломтиками. Сбрызнуть лимонным соком, посыпать сахаром, корицей, ванильным сахаром и крахмалом. Перемешать.</li>
+<li><strong>Формовка:</strong> Большую часть теста раскатать в круг, выложить в форму (диаметр 24-26 см), сформировать бортики.</li>
+<li><strong>Начинка в форму:</strong> Равномерно распределить яблоки по тесту.</li>
+<li><strong>Верхний слой:</strong> Меньшую часть теста раскатать и накрыть пирог, или нарезать полосками и выложить решеткой.</li>
+<li><strong>Выпекание:</strong> Смазать верх взбитым яйцом, посыпать сахаром. Выпекать при 180°С 40-45 минут до золотистого цвета.</li>
+</ol>
+</div>
+<div class="recipe-tips">
+<h4>💡 Советы:</h4>
+<ul>
+<li>Используйте кисло-сладкие яблоки (Антоновка, Гренни Смит) — они лучше держат форму</li>
+<li>Подавайте теплым с шариком ванильного мороженого или взбитыми сливками</li>
+<li>Для хрустящей корочки смажьте пирог яйцом перед выпечкой</li>
+<li>Готовность проверяйте деревянной шпажкой — она должна выходить сухой</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Testimonials Section -->
+<section class="testimonials">
+<div class="container">
+<div class="section-title">
+<h2>Отзывы наших гостей</h2>
+<p>Что говорят о нашей еде</p>
+</div>
+<div class="testimonials-slider">
+<div class="testimonial-item active">
+<div class="testimonial-content">
+<p>«Заказывала борщ на обед, и это было настоящее чудо! Вкус как у моей бабушки, сразу вспомнила детство. Теперь заказываю регулярно!»</p>
+</div>
+<div class="testimonial-author">
+<div class="author-avatar">А</div>
+<div class="author-info">
+<h4>Анна Петрова</h4>
+<p>Постоянный клиент</p>
+</div>
+</div>
+</div>
+<div class="testimonial-item">
+<div class="testimonial-content">
+<p>«Пельмени просто невероятные! Такие сочные и вкусные, что невозможно остановиться. Моя семья в восторге, спасибо за ваш труд и любовь к еде!»</p>
+</div>
+<div class="testimonial-author">
+<div class="author-avatar">М</div>
+<div class="author-info">
+<h4>Михаил Соколов</h4>
+<p>Отец двоих детей</p>
+</div>
+</div>
+</div>
+<div class="testimonial-item">
+<div class="testimonial-content">
+<p>«Заказывала торт на день рождения сына. Не только красивый, но и очень вкусный! Все гости были в восторге. Теперь знаю, куда обращаться за праздничной выпечкой!»</p>
+</div>
+<div class="testimonial-author">
+<div class="author-avatar">Е</div>
+<div class="author-info">
+<h4>Елена Козлова</h4>
+<p>Мама</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+<div class="container">
+<div class="section-title">
+<h2>Свяжитесь с нами</h2>
+<p>Закажите домашнюю еду с любовью</p>
+</div>
+<div class="contact-content">
+<div class="contact-info">
+<div class="info-item">
+<span class="info-icon">📍</span>
+<div>
+<h4>Адрес</h4>
+<p>г. Москва, ул. Тверская, д. 15, стр. 1</p>
+</div>
+</div>
+<div class="info-item">
+<span class="info-icon">📱</span>
+<div>
+<h4>Телефон</h4>
+<p>+7 (495) 123-45-67</p>
+<p>+7 (926) 987-65-43</p>
+</div>
+</div>
+<div class="info-item">
+<span class="info-icon">⏰</span>
+<div>
+<h4>Режим работы</h4>
+<p>Пн-Пт: 9:00 - 21:00</p>
+<p>Сб-Вс: 10:00 - 22:00</p>
+</div>
+</div>
+<div class="info-item">
+<span class="info-icon">✉️</span>
+<div>
+<h4>Email</h4>
+<p>info@domashnyaya-kuhnya.ru</p>
+</div>
+</div>
+</div>
+<div class="contact-form">
+<form id="orderForm">
+<div class="form-group">
+<label for="name">Ваше имя *</label>
+<input type="text" id="name" required>
+</div>
+<div class="form-group">
+<label for="phone">Телефон *</label>
+<input type="tel" id="phone" pattern="[0-9]{11}" maxlength="11" inputmode="numeric" required placeholder="79991234567">
+</div>
+<div class="form-group">
+<label for="email">Email</label>
+<input type="email" id="email">
+</div>
+<div class="form-group">
+<label for="message">Что бы вы хотели заказать?</label>
+<textarea id="message" rows="4"></textarea>
+</div>
+<button type="submit" class="btn btn-primary btn-block">Отправить заказ</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-logo">
+<span class="logo-icon">❤️</span>
+<h3>Домашняя кухня</h3>
+<p>Еда, приготовленная с любовью</p>
+</div>
+<div class="footer-links">
+<h4>Быстрые ссылки</h4>
+<ul>
+<li><a href="#home">Главная</a></li>
+<li><a href="#about">О нас</a></li>
+<li><a href="#menu">Меню</a></li>
+<li><a href="#recipes">Рецепты</a></li>
+<li><a href="#contact">Контакты</a></li>
+</ul>
+</div>
+<div class="footer-social">
+<h4>Мы в соцсетях</h4>
+<div class="social-icons">
+<a href="https://instagram.com" target="_blank"><span>📱</span> Instagram</a>
+<a href="https://t.me" target="_blank"><span>💬</span> Telegram</a>
+<a href="https://vk.com" target="_blank"><span>👍</span> VK</a>
+</div>
+</div>
+</div>
+<div class="footer-legal">
+<button class="legal-footer-link" onclick="document.getElementById('privacyModal').classList.add('active'); document.body.style.overflow='hidden'">Политика конфиденциальности</button>
+<span style="color:var(--gray);opacity:0.5">|</span>
+<button class="legal-footer-link" onclick="document.getElementById('termsModal').classList.add('active'); document.body.style.overflow='hidden'">Пользовательское соглашение</button>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 Домашняя кухня. Все права защищены.</p>
+<p>Сделано с ❤️ для вас</p>
+<p style="margin-top:10px;font-size:13px"><a href="data-policy.html" style="color:#e74c3c;text-decoration:none">Политика обработки данных</a> &nbsp;|&nbsp; <a href="dev-docs.html" style="color:#e74c3c;text-decoration:none">Документация разработчика</a></p>
+</div>
+</div>
+</footer>
+
+<!-- Privacy Policy Modal -->
+<div id="privacyModal" class="modal legal-modal">
+<div class="modal-content">
+<div class="modal-header">
+<h2>Политика конфиденциальности</h2>
+<button class="modal-close" onclick="document.getElementById('privacyModal').classList.remove('active'); document.body.style.overflow='auto'">&times;</button>
+</div>
+<div class="legal-body">
+<h1>ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ ОБРАБОТКИ ПЕРСОНАЛЬНЫХ ДАННЫХ</h1>
+<p class="legal-meta">«Домашняя кухня» &nbsp;|&nbsp; г. Москва, ул. Тверская, д. 15, стр. 1 &nbsp;|&nbsp; Редакция от 8 апреля 2026 года</p>
+<p>Настоящая Политика конфиденциальности персональных данных (далее – Политика конфиденциальности) действует в отношении всей информации, которую «Домашняя кухня» (далее – Компания) может получить о пользователе во время использования сайта antohalop.github.io/wowv.io/, его функций и сервисов, включая корзину заказов и форму обратной связи.</p>
+
+<h2>1. Определение терминов</h2>
+<p>1.1. В настоящей Политике конфиденциальности используются следующие термины:</p>
+<p><strong>1.1.1. «Администрация Сайта»</strong> — уполномоченные сотрудники «Домашней кухни», которые организуют и (или) осуществляют обработку персональных данных. Юридический адрес: г. Москва, ул. Тверская, д. 15, стр. 1.</p>
+<p><strong>1.1.2. «Персональные данные»</strong> — любая информация, относящаяся к прямо или косвенно определённому физическому лицу.</p>
+<p><strong>1.1.3. «Обработка персональных данных»</strong> — любое действие или совокупность действий, совершаемых с персональными данными, включая сбор, запись, систематизацию, накопление, хранение, уточнение, извлечение, использование, передачу, обезличивание, блокирование, удаление, уничтожение.</p>
+<p><strong>1.1.4. «Конфиденциальность персональных данных»</strong> — обязательное требование не допускать распространения персональных данных без согласия субъекта.</p>
+<p><strong>1.1.5. «Пользователь Сайта»</strong> — лицо, имеющее доступ к Сайту посредством сети Интернет и использующее его сервисы.</p>
+<p><strong>1.1.6. «Cookies»</strong> — небольшой фрагмент данных, отправленный веб-сервером и хранимый на устройстве Пользователя.</p>
+<p><strong>1.1.7. «IP-адрес»</strong> — уникальный сетевой адрес устройства в компьютерной сети, построенной по протоколу IP.</p>
+
+<h2>2. Общие положения</h2>
+<p>2.1. Настоящая Политика разработана на основании Конституции РФ, Гражданского кодекса РФ, Федерального закона «О персональных данных» № 152-ФЗ и иных нормативных правовых актов РФ.</p>
+<p>2.2. Использование Пользователем Сайта, оформление заказа или отправка заявки означает согласие с настоящей Политикой конфиденциальности.</p>
+<p>2.3. В случае несогласия с условиями Политики Пользователь должен прекратить использование Сайта.</p>
+<p>2.4. Настоящая Политика применяется только к Сайту «Домашней кухни». Компания не несёт ответственности за сайты третьих лиц (Instagram, Telegram, ВКонтакте).</p>
+<p>2.5. Администрация Сайта не проверяет достоверность персональных данных, предоставляемых Пользователем.</p>
+
+<h2>3. Предмет политики конфиденциальности</h2>
+<p>3.1. Настоящая Политика устанавливает обязательства Администрации по защите конфиденциальности персональных данных Пользователя.</p>
+<p>3.2. Персональные данные, разрешённые к обработке, предоставляются путём заполнения форм на Сайте и включают:</p>
+<p>3.2.1. Имя и фамилию Пользователя.</p>
+<p>3.2.2. Номер контактного телефона.</p>
+<p>3.2.3. Адрес электронной почты.</p>
+<p>3.2.4. Данные для оплаты: номер карты или номер телефона (при оплате через СБП).</p>
+<p>3.2.5. Текст заявки — описание желаемого заказа.</p>
+<p>3.3. Компания также обрабатывает данные, которые автоматически передаются в процессе просмотра Сайта: IP-адрес, информация из Cookies, сведения о браузере и устройстве, дата и время доступа.</p>
+
+<h2>4. Цели сбора персональной информации</h2>
+<p>4.1.1. Приём и обработка заказов блюд, оформленных через корзину Сайта.</p>
+<p>4.1.2. Подтверждение заказа и связь с Пользователем (звонок, SMS, email).</p>
+<p>4.1.3. Обработка платёжных данных при оплате через карту или СБП.</p>
+<p>4.1.4. Ответ на заявки, поданные через форму обратной связи.</p>
+<p>4.1.5. Информирование о новых блюдах, акциях и специальных предложениях — при наличии согласия Пользователя.</p>
+<p>4.1.6. Обеспечение безопасности Сайта и предотвращение мошеннических действий.</p>
+<p>4.1.7. Улучшение качества сервиса на основе анализа пользовательского поведения.</p>
+
+<h2>5. Способы и сроки обработки персональной информации</h2>
+<p>5.1. Обработка персональных данных осуществляется любым законным способом и прекращается после достижения целей обработки.</p>
+<p>5.2. Персональные данные могут быть переданы уполномоченным органам государственной власти РФ только на основаниях и в порядке, установленных законодательством РФ.</p>
+<p>5.3. При утрате или разглашении персональных данных Администрация незамедлительно информирует Пользователя.</p>
+<p>5.4. Администрация принимает необходимые меры для защиты персональной информации от неправомерного доступа, уничтожения, изменения, блокирования, копирования и распространения.</p>
+
+<h2>6. Обязательства сторон</h2>
+<p><strong>6.1. Пользователь обязан:</strong> предоставить корректные персональные данные; своевременно обновлять их в случае изменения.</p>
+<p><strong>6.2. Администрация Сайта обязана:</strong> использовать информацию исключительно для указанных целей; обеспечивать конфиденциальность; не осуществлять продажу или разглашение данных; принимать меры по защите; осуществлять блокирование данных по запросу.</p>
+
+<h2>7. Ответственность сторон</h2>
+<p>7.1. Администрация несёт ответственность за неправомерное использование персональных данных в соответствии с законодательством РФ.</p>
+<p>7.2. Администрация не несёт ответственности за утрату данных, если они стали публичным достоянием до утраты; были получены от третьей стороны; были разглашены с согласия Пользователя.</p>
+<p>7.3. Пользователь несёт полную ответственность за достоверность предоставленных данных.</p>
+
+<h2>8. Разрешение споров</h2>
+<p>8.1. До обращения в суд обязательным является предъявление письменной претензии.</p>
+<p>8.2. Администрация рассматривает претензию и направляет ответ в течение 30 календарных дней.</p>
+<p>8.3. При недостижении соглашения спор передаётся в суд по месту нахождения Компании.</p>
+
+<h2>9. Дополнительные условия</h2>
+<p>9.1. Администрация вправе вносить изменения в настоящую Политику без согласия Пользователя.</p>
+<p>9.2. Новая редакция вступает в силу с момента её размещения на Сайте.</p>
+<p>9.3. Контакты: Телефон: +7 (495) 123-45-67, +7 (926) 987-65-43 &nbsp;|&nbsp; Email: info@domashnyaya-kuhnya.ru &nbsp;|&nbsp; г. Москва, ул. Тверская, д. 15, стр. 1 &nbsp;|&nbsp; Пн–Пт 9:00–21:00, Сб–Вс 10:00–22:00</p>
+<p style="text-align:center;margin-top:30px;color:var(--gray);font-size:0.85rem;">© 2026 Домашняя кухня. Все права защищены.</p>
+</div>
+</div>
+</div>
+
+<!-- Terms of Service Modal -->
+<div id="termsModal" class="modal legal-modal">
+<div class="modal-content">
+<div class="modal-header">
+<h2>Пользовательское соглашение</h2>
+<button class="modal-close" onclick="document.getElementById('termsModal').classList.remove('active'); document.body.style.overflow='auto'">&times;</button>
+</div>
+<div class="legal-body">
+<h1>ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ</h1>
+<p class="legal-meta">об использовании сайта и сервисов «Домашняя кухня»</p>
+<p class="legal-meta">Российская Федерация, г. Москва &nbsp;|&nbsp; Редакция от 8 апреля 2026 года</p>
+
+<h2>1. Термины и определения</h2>
+<p><strong>1.1. Компания («Домашняя кухня»)</strong> — лицо, осуществляющее деятельность по приготовлению и доставке домашних блюд, юридический адрес: г. Москва, ул. Тверская, д. 15, стр. 1.</p>
+<p><strong>1.2. Сайт</strong> — веб-ресурс «Домашняя кухня» по адресу: antohalop.github.io/wowv.io/, включающий страницы меню, рецептов, раздел контактов и форму оформления заказа с корзиной.</p>
+<p><strong>1.3. Пользователь</strong> — любое физическое лицо, осуществляющее доступ к Сайту.</p>
+<p><strong>1.4. Заказ</strong> — выбранный Пользователем набор блюд из меню, добавленный в корзину и оформленный с выбором способа оплаты.</p>
+<p><strong>1.5. Корзина</strong> — функциональный элемент Сайта, позволяющий накапливать выбранные позиции меню.</p>
+<p><strong>1.6. Рецепт</strong> — информационный материал на Сайте, содержащий состав ингредиентов и инструкцию приготовления блюда. Является интеллектуальной собственностью Компании.</p>
+<p><strong>1.7. Персональные данные</strong> — информация, идентифицирующая Пользователя: имя, телефон, email, адрес доставки, история заказов.</p>
+
+<h2>2. Общие положения</h2>
+<p>2.1. Настоящее Соглашение является публичной офертой по ст. 437 ГК РФ. Факт посещения Сайта, добавления блюда в корзину или оформления заказа означает полное принятие условий Соглашения.</p>
+<p>2.2. Компания вправе вносить изменения в Соглашение. Актуальная редакция размещается на Сайте. Продолжение пользования означает согласие с новой редакцией.</p>
+<p>2.3. Компания обрабатывает персональные данные в соответствии с требованиями Федерального закона № 152-ФЗ «О персональных данных».</p>
+<p>2.4. Использование Сайта несовершеннолетними допускается только с согласия родителей или законных представителей.</p>
+<p>2.5. Компания не несёт ответственности за сайты третьих лиц (Instagram, Telegram, VK).</p>
+
+<h2>3. Функционал Сайта и права Пользователей</h2>
+<h3>3.1. Просмотр меню и рецептов</h3>
+<p>Пользователь вправе свободно просматривать меню «Домашней кухни» (Завтраки, Обеды, Ужины, Десерты), а также рецепты блюд. Информация о ценах и составе блюд носит информационный характер; Компания вправе изменять её без предварительного уведомления.</p>
+<h3>3.2. Оформление заказа через корзину</h3>
+<p>3.2.1. Пользователь вправе добавлять блюда в корзину и оформлять заказ с расчётом итоговой суммы в рублях.</p>
+<p>3.2.2. Доступные способы оплаты: карта и СБП (по номеру телефона).</p>
+<p>3.2.3. Заказ считается принятым с момента получения подтверждения от Компании.</p>
+<p>3.2.4. Компания вправе отказать в выполнении заказа при отсутствии ингредиентов, уведомив Пользователя.</p>
+<h3>3.3. Форма обратной связи</h3>
+<p>Пользователь вправе оставить заявку через форму в разделе «Контакты». Компания обязуется ответить в течение рабочего дня.</p>
+<h3>3.4. Отзывы</h3>
+<p>Пользователь вправе оставлять отзывы о качестве блюд и сервисе. Компания вправе удалять отзывы, содержащие ненормативную лексику или заведомо ложные сведения.</p>
+
+<h2>4. Условия использования Сайта</h2>
+<p>4.1. Пользователь обязуется использовать Сайт в законных целях и не нарушать права Компании и третьих лиц.</p>
+<p>4.2. Пользователь обязуется предоставлять достоверные данные при оформлении заказов.</p>
+<p>4.3. Пользователю запрещается: попытки несанкционированного доступа к административной части Сайта; действия, нарушающие работу Сайта; копирование контента без письменного согласия Компании; размещение ложных отзывов; использование Сайта для спама.</p>
+
+<h2>5. Интеллектуальная собственность</h2>
+<p>5.1. Все материалы Сайта — фотографии, тексты рецептов, логотип — являются объектами интеллектуальной собственности Компании и охраняются законодательством РФ.</p>
+<p>5.2. Распространение текстовых материалов допускается при условии обязательного указания активной ссылки на Сайт.</p>
+<p>5.3. Копирование фотографий без письменного согласия Компании не допускается.</p>
+
+<h2>6. Обязанности и ответственность сторон</h2>
+<p><strong>6.1. Компания обязуется:</strong> обеспечивать доступность Сайта и актуальность информации о меню и ценах; выполнять принятые заказы надлежащего качества; соблюдать конфиденциальность персональных данных.</p>
+<p><strong>6.2. Пользователь обязуется:</strong> предоставлять корректные контактные данные; своевременно производить оплату; уведомлять Компанию об отмене заказа не менее чем за 2 часа до доставки.</p>
+<p><strong>6.3. Компания не несёт ответственности за:</strong> перебои в работе Сайта по техническим причинам; качество интернет-соединения Пользователя; задержки доставки по форс-мажорным обстоятельствам.</p>
+
+<h2>7. Порядок разрешения споров</h2>
+<p>7.1. До обращения в суд обязательным является предъявление письменной претензии.</p>
+<p>7.2. Компания рассматривает претензию и направляет ответ в течение 10 рабочих дней.</p>
+<p>7.3. При недостижении соглашения спор подлежит рассмотрению в суде по месту нахождения Компании.</p>
+
+<h2>8. Заключительные положения</h2>
+<p>8.1. Настоящее Соглашение вступает в силу с момента первого обращения Пользователя к Сайту и действует бессрочно.</p>
+<p>8.2. По всем вопросам: Телефон: +7 (495) 123-45-67, +7 (926) 987-65-43 &nbsp;|&nbsp; Email: info@domashnyaya-kuhnya.ru &nbsp;|&nbsp; г. Москва, ул. Тверская, д. 15, стр. 1 &nbsp;|&nbsp; Пн–Пт 9:00–21:00, Сб–Вс 10:00–22:00</p>
+<p style="text-align:center;margin-top:30px;color:var(--gray);font-size:0.85rem;">© 2026 Домашняя кухня. Все права защищены.</p>
+</div>
+</div>
+</div>
+
+<script>
+// Shopping Cart Functionality
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+function updateCart() {
+// Update cart count
+document.getElementById('cartCount').textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+// Save to localStorage
+localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+function renderCart() {
+const cartItemsContainer = document.getElementById('cartItemsContainer');
+const cartTotalElement = document.getElementById('cartTotal');
+if (cart.length === 0) {
+cartItemsContainer.innerHTML = `
+<div class="cart-empty">
+<i class="fas fa-shopping-basket"></i>
+<p>Ваша корзина пуста</p>
+<p>Добавьте что-нибудь вкусненькое!</p>
+</div>
+`;
+cartTotalElement.textContent = '0 ₽';
+return;
+}
+let html = '';
+let total = 0;
+cart.forEach((item, index) => {
+const itemTotal = item.price * item.quantity;
+total += itemTotal;
+html += `
+<div class="cart-item">
+<div class="cart-item-img">
+<img src="${item.img}" alt="${item.name}">
+</div>
+<div class="cart-item-info">
+<h4>${item.name}</h4>
+<div class="cart-item-price">${itemTotal.toLocaleString()} ₽</div>
+<div class="cart-item-quantity">
+<button class="quantity-btn decrease" data-index="${index}">-</button>
+<span class="quantity-display">${item.quantity}</span>
+<button class="quantity-btn increase" data-index="${index}">+</button>
+<button class="remove-item" data-index="${index}">
+<i class="fas fa-trash"></i>
+</button>
+</div>
+</div>
+</div>
+`;
+});
+cartItemsContainer.innerHTML = html;
+cartTotalElement.textContent = `${total.toLocaleString()} ₽`;
+// Add event listeners
+document.querySelectorAll('.decrease').forEach(btn => {
+btn.addEventListener('click', function() {
+const index = this.getAttribute('data-index');
+if (cart[index].quantity > 1) {
+cart[index].quantity--;
+} else {
+cart.splice(index, 1);
+}
+renderCart();
+updateCart();
+});
+});
+document.querySelectorAll('.increase').forEach(btn => {
+btn.addEventListener('click', function() {
+const index = this.getAttribute('data-index');
+cart[index].quantity++;
+renderCart();
+updateCart();
+});
+});
+document.querySelectorAll('.remove-item').forEach(btn => {
+btn.addEventListener('click', function() {
+const index = this.getAttribute('data-index');
+cart.splice(index, 1);
+renderCart();
+updateCart();
+});
+});
+}
+
+// Add to cart functionality
+document.querySelectorAll('.btn-add').forEach(btn => {
+btn.addEventListener('click', function() {
+const id = this.getAttribute('data-id');
+const name = this.getAttribute('data-name');
+const price = parseInt(this.getAttribute('data-price'));
+const img = this.getAttribute('data-img');
+const existingItem = cart.find(item => item.id === id);
+if (existingItem) {
+existingItem.quantity++;
+} else {
+cart.push({
+id: id,
+name: name,
+price: price,
+img: img,
+quantity: 1
+});
+}
+renderCart();
+updateCart();
+// Show feedback
+const originalText = this.textContent;
+this.textContent = 'Добавлено! ❤️';
+this.style.backgroundColor = '#27ae60';
+setTimeout(() => {
+this.textContent = originalText;
+this.style.backgroundColor = '';
+}, 1500);
+});
+});
+
+// Cart modal functionality
+document.getElementById('cartBtn').addEventListener('click', function() {
+document.getElementById('cartModal').classList.add('active');
+renderCart();
+});
+document.getElementById('closeCart').addEventListener('click', function() {
+document.getElementById('cartModal').classList.remove('active');
+});
+document.getElementById('cartModal').addEventListener('click', function(e) {
+if (e.target === this) {
+this.classList.remove('active');
+}
+});
+document.addEventListener('keydown', function(e) {
+if (e.key === 'Escape') {
+document.getElementById('cartModal').classList.remove('active');
+}
+});
+
+// Payment method selection
+document.querySelectorAll('.payment-btn').forEach(btn => {
+btn.addEventListener('click', function() {
+document.querySelectorAll('.payment-btn').forEach(b => b.classList.remove('active'));
+this.classList.add('active');
+// Show/hide payment forms
+const method = this.getAttribute('data-method');
+document.getElementById('cardForm').classList.toggle('active', method === 'card');
+document.getElementById('sbpForm').classList.toggle('active', method === 'sbp');
+});
+});
+
+// Card number formatting
+document.getElementById('cardNumber').addEventListener('input', function(e) {
+let value = e.target.value.replace(/\D/g, '');
+if (value.length > 16) {
+value = value.slice(0, 16);
+}
+let formatted = '';
+for (let i = 0; i < value.length; i++) {
+if (i > 0 && i % 4 === 0) {
+formatted += ' ';
+}
+formatted += value[i];
+}
+e.target.value = formatted;
+});
+
+// Phone number formatting for SBP
+document.getElementById('sbpPhone').addEventListener('input', function(e) {
+let value = e.target.value.replace(/\D/g, '');
+if (value.length > 11) {
+value = value.slice(0, 11);
+}
+e.target.value = value;
+});
+
+// Checkout button
+document.getElementById('checkoutBtn').addEventListener('click', function() {
+if (cart.length === 0) {
+alert('Ваша корзина пуста!');
+return;
+}
+const paymentMethod = document.querySelector('.payment-btn.active').getAttribute('data-method');
+let paymentText = paymentMethod === 'card' ? 'картой' : 'по СБП';
+const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+// Validate payment info
+if (paymentMethod === 'card') {
+const cardNumber = document.getElementById('cardNumber').value.replace(/\s/g, '');
+if (cardNumber.length !== 16) {
+alert('Пожалуйста, введите корректный номер карты (16 цифр)');
+return;
+}
+// Show success modal
+document.getElementById('successMessage').textContent = 'Ваша карта успешно привязана к аккаунту';
+document.getElementById('successModal').classList.add('active');
+} else {
+const sbpPhone = document.getElementById('sbpPhone').value;
+if (sbpPhone.length !== 11) {
+alert('Пожалуйста, введите корректный номер телефона (11 цифр)');
+return;
+}
+// Show success modal
+document.getElementById('successMessage').textContent = 'Ваш номер телефона успешно привязан для оплаты по СБП';
+document.getElementById('successModal').classList.add('active');
+}
+});
+
+// Success modal close
+document.getElementById('successClose').addEventListener('click', function() {
+document.getElementById('successModal').classList.remove('active');
+// Clear cart after successful checkout
+cart = [];
+renderCart();
+updateCart();
+document.getElementById('cartModal').classList.remove('active');
+// Clear form inputs
+document.getElementById('cardNumber').value = '';
+document.getElementById('sbpPhone').value = '';
+});
+
+document.getElementById('successModal').addEventListener('click', function(e) {
+if (e.target === this) {
+this.classList.remove('active');
+cart = [];
+renderCart();
+updateCart();
+document.getElementById('cartModal').classList.remove('active');
+document.getElementById('cardNumber').value = '';
+document.getElementById('sbpPhone').value = '';
+}
+});
+
+// Recipe Modal Functionality
+document.addEventListener('DOMContentLoaded', function() {
+// Open modal
+const recipeLinks = document.querySelectorAll('.recipe-link');
+recipeLinks.forEach(link => {
+link.addEventListener('click', function() {
+const modalId = this.getAttribute('data-modal');
+const modal = document.getElementById(modalId + '-modal');
+if (modal) {
+modal.classList.add('active');
+document.body.style.overflow = 'hidden'; // Prevent scrolling
+}
+});
+});
+// Close modal
+const modalCloses = document.querySelectorAll('.modal-close');
+modalCloses.forEach(closeBtn => {
+closeBtn.addEventListener('click', function() {
+const modal = this.closest('.modal');
+modal.classList.remove('active');
+document.body.style.overflow = 'auto';
+});
+});
+// Close modal on overlay click
+const modals = document.querySelectorAll('.modal');
+modals.forEach(modal => {
+modal.addEventListener('click', function(e) {
+if (e.target === this) {
+this.classList.remove('active');
+document.body.style.overflow = 'auto';
+}
+});
+});
+// Close modal on Escape key
+document.addEventListener('keydown', function(e) {
+if (e.key === 'Escape') {
+modals.forEach(modal => {
+modal.classList.remove('active');
+});
+document.body.style.overflow = 'auto';
+}
+});
+// Initialize cart
+updateCart();
+// Menu Tabs Functionality
+const tabBtns = document.querySelectorAll('.tab-btn');
+const menuItems = document.querySelectorAll('.menu-item');
+tabBtns.forEach(btn => {
+btn.addEventListener('click', function() {
+// Remove active class from all buttons
+tabBtns.forEach(b => b.classList.remove('active'));
+// Add active class to clicked button
+this.classList.add('active');
+// Get category from data-tab
+const category = this.getAttribute('data-tab');
+// Show/hide menu items based on category
+menuItems.forEach(item => {
+if (item.getAttribute('data-category') === category || category === 'all') {
+item.classList.add('active');
+} else {
+item.classList.remove('active');
+}
+});
+});
+});
+// Form Submission
+const orderForm = document.getElementById('orderForm');
+if (orderForm) {
+orderForm.addEventListener('submit', function(e) {
+e.preventDefault();
+const name = document.getElementById('name').value;
+const phone = document.getElementById('phone').value;
+const message = document.getElementById('message').value;
+// Save booking to Firebase
+import('./firebase-db.js').then(function(fb){
+  return fb.saveBooking({ name: name, phone: phone, message: message });
+}).catch(function(e){ console.warn('Booking save error:', e); });
+// Simple validation
+if (name && phone) {
+if (!/^[0-9]{11}$/.test(phone)) {
+alert('Пожалуйста, введите корректный номер телефона (11 цифр)');
+return;
+}
+const selectedPay = document.querySelector('.payment-btn.active');
+const payMethod = selectedPay ? selectedPay.getAttribute('data-method') : 'cash';
+const payLabels = {cash:'Наличные',card:'Банковская карта',sbp:'СБП'};
+const orderData = {
+  name: name,
+  phone: phone,
+  message: message,
+  payment: payMethod,
+  paymentLabel: payLabels[payMethod] || payMethod,
+  items: cart.map(function(i){ return {name:i.name, price:i.price, qty:i.quantity}; }),
+  total: cart.reduce(function(s,i){ return s+i.price*i.quantity; }, 0),
+  itemsCount: cart.reduce(function(s,i){ return s+i.quantity; }, 0)
+};
+import('./firebase-db.js').then(function(fb){
+  return fb.saveOrder(orderData);
+}).then(function(){
+  alert('Спасибо за заказ, ' + name + '! Мы свяжемся с вами по телефону +' + phone + '.');
+  cart = [];
+  renderCart();
+  updateCart();
+  orderForm.reset();
+}).catch(function(e){
+  console.warn('Firebase order error:', e);
+  alert('Спасибо за заказ, ' + name + '! Мы свяжемся с вами скоро.');
+  cart = [];
+  renderCart();
+  updateCart();
+  orderForm.reset();
+});
+} else {
+alert('Пожалуйста, заполните все обязательные поля.');
+}
+});
+}
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+e.preventDefault();
+const targetId = this.getAttribute('href');
+if (targetId === '#') return;
+const targetElement = document.querySelector(targetId);
+if (targetElement) {
+window.scrollTo({
+top: targetElement.offsetTop - 80,
+behavior: 'smooth'
+});
+}
+});
+});
+// Testimonials slider
+const testimonials = document.querySelectorAll('.testimonial-item');
+let currentTestimonial = 0;
+function showNextTestimonial() {
+testimonials[currentTestimonial].classList.remove('active');
+currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+testimonials[currentTestimonial].classList.add('active');
+}
+// Auto rotate testimonials every 5 seconds
+setInterval(showNextTestimonial, 5000);
+// Header scroll effect
+const header = document.querySelector('.header');
+window.addEventListener('scroll', function() {
+if (window.scrollY > 100) {
+header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.2)';
+header.style.background = 'rgba(255, 255, 255, 0.98)';
+} else {
+header.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+header.style.background = 'white';
+}
+});
+// Phone input validation - allow only digits
+const phoneInput = document.getElementById('phone');
+if (phoneInput) {
+phoneInput.addEventListener('input', function() {
+this.value = this.value.replace(/[^0-9]/g, '');
+if (this.value.length > 11) {
+this.value = this.value.slice(0, 11);
+}
+});
+}
+});
+</script>
+<!-- Admin Login Modal -->
+<div class="admin-login-overlay" id="adminLoginOverlay">
+<div class="admin-login-box">
+<button class="admin-close-btn" id="adminCloseLogin">&times;</button>
+<div style="font-size:2.5rem;margin-bottom:10px;">🔐</div>
+<h3>Вход в админку</h3>
+<p>Введите пароль администратора</p>
+<div class="admin-login-error" id="adminLoginError">Неверный пароль. Попробуйте ещё раз.</div>
+<input type="password" id="adminPasswordInput" placeholder="Пароль" autocomplete="off">
+<button class="btn btn-block" id="adminLoginSubmit">Войти</button>
+</div>
+</div>
+
+<!-- Admin Panel -->
+<div class="admin-panel-overlay" id="adminPanelOverlay">
+<div class="admin-panel">
+<div class="admin-panel-header">
+<h2>⚙️ Панель администратора</h2>
+<button class="admin-logout-btn" id="adminLogoutBtn">Выйти</button>
+</div>
+<div class="admin-body">
+<div class="admin-tabs">
+<button class="admin-tab active" data-panel="dashboard">📊 Дашборд</button>
+<button class="admin-tab" data-panel="orders">🧾 Заказы</button>
+<button class="admin-tab" data-panel="bookings">📅 Бронирования</button>
+<button class="admin-tab" data-panel="menu-mgmt">🍽️ Меню</button>
+<button class="admin-tab" data-panel="contacts">📞 Контакты</button>
+<button class="admin-tab" data-panel="hours">⏰ Режим работы</button>
+<button class="admin-tab" data-panel="password">🔑 Пароль</button>
+</div>
+
+<!-- Dashboard -->
+<div class="admin-section active" id="panel-dashboard">
+<div class="admin-info-grid">
+<div class="admin-stat-card"><span class="stat-val">🍽️</span><span class="stat-lbl">Меню активно</span></div>
+<div class="admin-stat-card"><span class="stat-val">5</span><span class="stat-lbl">Категорий меню</span></div>
+<div class="admin-stat-card"><span class="stat-val">3</span><span class="stat-lbl">Рецепта на сайте</span></div>
+<div class="admin-stat-card"><span class="stat-val">✅</span><span class="stat-lbl">Сайт работает</span></div>
+</div>
+<div class="admin-card">
+<h4>Добро пожаловать в панель управления</h4>
+<p style="color:var(--gray);font-size:0.9rem;">Используйте вкладки выше для редактирования контактов, режима работы и текста на главной странице.</p>
+</div>
+</div>
+
+<!-- ЗАКАЗЫ -->
+<div class="admin-section" id="panel-orders">
+<div class="admin-info-grid" id="orders-stats">
+<div class="admin-stat-card"><span class="stat-val" id="ord-count">0</span><span class="stat-lbl">Всего заказов</span></div>
+<div class="admin-stat-card"><span class="stat-val" id="ord-total">0 ₽</span><span class="stat-lbl">Общая сумма</span></div>
+</div>
+<div id="orders-status" style="color:#e74c3c;margin-bottom:12px;font-size:14px">⏳ Подключение...</div>
+<div style="overflow-x:auto">
+<table style="width:100%;border-collapse:collapse" id="orders-table">
+<thead><tr style="background:#f8f8f8;font-size:13px">
+<th style="padding:10px;text-align:left;border-bottom:2px solid #eee">Дата</th>
+<th style="padding:10px;text-align:left;border-bottom:2px solid #eee">Имя</th>
+<th style="padding:10px;text-align:left;border-bottom:2px solid #eee">Телефон</th>
+<th style="padding:10px;text-align:left;border-bottom:2px solid #eee">Блюда</th>
+<th style="padding:10px;text-align:left;border-bottom:2px solid #eee">Оплата</th>
+<th style="padding:10px;text-align:left;border-bottom:2px solid #eee">Сумма</th>
+<th style="padding:10px;text-align:left;border-bottom:2px solid #eee">Статус</th>
+<th style="padding:10px;text-align:left;border-bottom:2px solid #eee">Удалить</th>
+</tr></thead>
+<tbody id="orders-tbody"><tr><td colspan="8" style="text-align:center;padding:20px;color:#999">Загрузка...</td></tr></tbody>
+</table>
+</div>
+</div>
+
+<!-- БРОНИРОВАНИЯ -->
+<div class="admin-section" id="panel-bookings">
+<div id="bookings-status" style="color:#e74c3c;margin-bottom:12px;font-size:14px">⏳ Подключение...</div>
+<div style="overflow-x:auto">
+<table style="width:100%;border-collapse:collapse" id="bookings-table">
+<thead><tr style="background:#f8f8f8;font-size:13px">
+<th style="padding:10px;text-align:left;border-bottom:2px solid #eee">Дата заявки</th>
+<th style="padding:10px;text-align:left;border-bottom:2px solid #eee">Имя</th>
+<th style="padding:10px;text-align:left;border-bottom:2px solid #eee">Телефон</th>
+<th style="padding:10px;text-align:left;border-bottom:2px solid #eee">Сообщение</th>
+<th style="padding:10px;text-align:left;border-bottom:2px solid #eee">Удалить</th>
+</tr></thead>
+<tbody id="bookings-tbody"><tr><td colspan="5" style="text-align:center;padding:20px;color:#999">Загрузка...</td></tr></tbody>
+</table>
+</div>
+</div>
+
+<!-- МЕНЮ -->
+<div class="admin-section" id="panel-menu-mgmt">
+<div class="admin-card">
+<h4>Добавить блюдо в меню</h4>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+<div><label style="font-size:13px;font-weight:600;display:block;margin-bottom:4px">Название *</label>
+<input id="mi-name" type="text" placeholder="Борщ по-домашнему" style="width:100%;padding:9px 12px;border:2px solid #eee;border-radius:8px;font-size:14px"></div>
+<div><label style="font-size:13px;font-weight:600;display:block;margin-bottom:4px">Категория *</label>
+<select id="mi-cat" style="width:100%;padding:9px 12px;border:2px solid #eee;border-radius:8px;font-size:14px">
+<option value="breakfast">Завтраки</option>
+<option value="lunch">Обеды</option>
+<option value="dinner">Ужины</option>
+<option value="desserts">Десерты</option>
+<option value="drinks">Напитки</option>
+</select></div>
+</div>
+<div style="margin-bottom:12px"><label style="font-size:13px;font-weight:600;display:block;margin-bottom:4px">Описание</label>
+<textarea id="mi-desc" rows="2" placeholder="Описание блюда..." style="width:100%;padding:9px 12px;border:2px solid #eee;border-radius:8px;font-size:14px;resize:vertical"></textarea></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+<div><label style="font-size:13px;font-weight:600;display:block;margin-bottom:4px">Цена (₽) *</label>
+<input id="mi-price" type="number" min="0" placeholder="350" style="width:100%;padding:9px 12px;border:2px solid #eee;border-radius:8px;font-size:14px"></div>
+<div><label style="font-size:13px;font-weight:600;display:block;margin-bottom:4px">Фото</label>
+<div style="display:flex;gap:8px;align-items:center">
+<input id="mi-img" type="text" placeholder="Ссылка появится после загрузки" style="flex:1;padding:9px 12px;border:2px solid #eee;border-radius:8px;font-size:13px">
+<label for="mi-img-file" id="mi-upload-btn" style="cursor:pointer;padding:8px 13px;background:#e74c3c;color:#fff;border-radius:8px;font-size:13px;font-weight:600;white-space:nowrap">📷 Загрузить</label>
+<input type="file" id="mi-img-file" accept="image/*" style="display:none" onchange="adminUploadPhoto(this,'mi-img','mi-upload-btn','mi-preview')">
+</div>
+<div id="mi-preview" style="margin-top:6px;display:none"><img style="width:70px;height:70px;object-fit:cover;border-radius:8px;border:2px solid #e74c3c"></div>
+</div>
+</div>
+<button onclick="adminAddMenuItem()" style="background:#e74c3c;color:#fff;border:none;padding:10px 24px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer">Добавить блюдо</button>
+<span id="mi-success" style="color:#27ae60;font-size:13px;margin-left:10px;display:none">✅ Добавлено!</span>
+</div>
+<div class="admin-card">
+<h4>Текущее меню <span id="mi-count" style="color:#999;font-weight:400"></span></h4>
+<div id="mi-list" style="overflow-x:auto"><p style="color:#999;font-size:14px">Загрузка...</p></div>
+</div>
+</div>
+
+
+<!-- Contacts -->
+<div class="admin-section" id="panel-contacts">
+<div class="admin-card">
+<h4>📞 Телефоны</h4>
+<div class="admin-input-row">
+<div>
+<label>Телефон 1</label>
+<input type="text" id="adm-phone1" value="+7 (495) 123-45-67">
+</div>
+<div>
+<label>Телефон 2</label>
+<input type="text" id="adm-phone2" value="+7 (926) 987-65-43">
+</div>
+</div>
+<div class="admin-input-row single">
+<div>
+<label>Email</label>
+<input type="email" id="adm-email" value="info@domashnyaya-kuhnya.ru">
+</div>
+</div>
+<div class="admin-input-row single">
+<div>
+<label>Адрес</label>
+<input type="text" id="adm-address" value="г. Москва, ул. Тверская, д. 15, стр. 1">
+</div>
+</div>
+<button class="admin-save-btn" onclick="adminSave('contacts')">Сохранить</button>
+<div class="admin-success" id="save-contacts">✓ Сохранено!</div>
+</div>
+</div>
+
+<!-- Hours -->
+<div class="admin-section" id="panel-hours">
+<div class="admin-card">
+<h4>⏰ Режим работы</h4>
+<div class="admin-input-row">
+<div>
+<label>Пн–Пт (начало)</label>
+<input type="time" id="adm-weekday-open" value="09:00">
+</div>
+<div>
+<label>Пн–Пт (конец)</label>
+<input type="time" id="adm-weekday-close" value="21:00">
+</div>
+</div>
+<div class="admin-input-row">
+<div>
+<label>Сб–Вс (начало)</label>
+<input type="time" id="adm-weekend-open" value="10:00">
+</div>
+<div>
+<label>Сб–Вс (конец)</label>
+<input type="time" id="adm-weekend-close" value="22:00">
+</div>
+</div>
+<button class="admin-save-btn" onclick="adminSave('hours')">Сохранить</button>
+<div class="admin-success" id="save-hours">✓ Сохранено!</div>
+</div>
+</div>
+
+<!-- Hero -->
+<div class="admin-section" id="panel-hero">
+<div class="admin-card">
+<h4>🏠 Текст на главной странице</h4>
+<div class="admin-input-row single">
+<div>
+<label>Заголовок (Hero)</label>
+<input type="text" id="adm-hero-title" value="Домашняя еда с любовью">
+</div>
+</div>
+<div class="admin-input-row single">
+<div>
+<label>Подзаголовок</label>
+<input type="text" id="adm-hero-subtitle" value="Приготовлено с душой, доставлено к вашему столу">
+</div>
+</div>
+<div class="admin-input-row single">
+<div>
+<label>О нас (текст)</label>
+<textarea id="adm-about-text" rows="4">Мы готовим блюда по домашним рецептам с использованием только свежих и натуральных продуктов. Каждое блюдо приготовлено с любовью и заботой о вашем здоровье.</textarea>
+</div>
+</div>
+<button class="admin-save-btn" onclick="adminSave('hero')">Сохранить</button>
+<div class="admin-success" id="save-hero">✓ Сохранено!</div>
+</div>
+</div>
+
+<!-- Password change -->
+<div class="admin-section" id="panel-password">
+<div class="admin-card">
+<h4>🔑 Смена пароля администратора</h4>
+<div class="admin-input-row single">
+<div>
+<label>Текущий пароль</label>
+<input type="password" id="adm-old-pass" placeholder="Введите текущий пароль" autocomplete="off">
+</div>
+</div>
+<div class="admin-input-row single">
+<div>
+<label>Новый пароль</label>
+<input type="password" id="adm-new-pass" placeholder="Введите новый пароль" autocomplete="new-password">
+</div>
+</div>
+<div class="admin-input-row single">
+<div>
+<label>Повторите новый пароль</label>
+<input type="password" id="adm-new-pass2" placeholder="Повторите новый пароль" autocomplete="new-password">
+</div>
+</div>
+<button class="admin-save-btn" onclick="adminChangePassword()">Сменить пароль</button>
+<div class="admin-success" id="save-password">✓ Пароль успешно изменён!</div>
+<div class="admin-login-error" id="error-password" style="display:none;margin-top:8px;"></div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<script>
+// ─── Admin Auth ───────────────────────────────────────────────────────────────
+// Password is stored as a SHA-256 hash — never visible in plain text in source
+// Default password: admin2026
+const ADMIN_HASH_KEY = 'dk_admin_hash';
+
+async function sha256(message) {
+  const msgBuffer = new TextEncoder().encode(message);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+const DEFAULT_HASH = 'cbe466bd3a800a88b631b83fbb20501ad3398acfe000db9bafa3faef289f6156';
+async function initAdminHash() {
+  try {
+    const fb = await import('./firebase-db.js');
+    const cloudHash = await fb.loadPassword();
+    if (cloudHash) { localStorage.setItem(ADMIN_HASH_KEY, cloudHash); return; }
+  } catch(e) {}
+  if (!localStorage.getItem(ADMIN_HASH_KEY)) {
+    localStorage.setItem(ADMIN_HASH_KEY, DEFAULT_HASH);
+  }
+}
+initAdminHash();
+
+async function checkAdminPassword(input) {
+  const stored = localStorage.getItem(ADMIN_HASH_KEY);
+  const inputHash = await sha256(input);
+  return inputHash === stored;
+}
+
+// Login button
+document.getElementById('adminLoginBtn').addEventListener('click', () => {
+  document.getElementById('adminLoginOverlay').classList.add('active');
+  document.getElementById('adminPasswordInput').value = '';
+  document.getElementById('adminLoginError').style.display = 'none';
+});
+document.getElementById('adminCloseLogin').addEventListener('click', () => {
+  document.getElementById('adminLoginOverlay').classList.remove('active');
+});
+document.getElementById('adminLoginOverlay').addEventListener('click', function(e) {
+  if (e.target === this) this.classList.remove('active');
+});
+
+document.getElementById('adminLoginSubmit').addEventListener('click', async () => {
+  const val = document.getElementById('adminPasswordInput').value;
+  const ok = await checkAdminPassword(val);
+  if (ok) {
+    document.getElementById('adminLoginOverlay').classList.remove('active');
+    document.getElementById('adminPanelOverlay').classList.add('active');
+    document.getElementById('adminPasswordInput').value = '';
+  } else {
+    document.getElementById('adminLoginError').style.display = 'block';
+  }
+});
+document.getElementById('adminPasswordInput').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') document.getElementById('adminLoginSubmit').click();
+});
+
+document.getElementById('adminLogoutBtn').addEventListener('click', () => {
+  document.getElementById('adminPanelOverlay').classList.remove('active');
+});
+
+// Admin tabs
+document.querySelectorAll('.admin-tab').forEach(tab => {
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.admin-section').forEach(s => s.classList.remove('active'));
+    this.classList.add('active');
+    document.getElementById('panel-' + this.dataset.panel).classList.add('active');
+  });
+});
+
+function adminSave(section) {
+  const el = document.getElementById('save-' + section);
+  el.style.display = 'block';
+  setTimeout(() => el.style.display = 'none', 2500);
+}
+
+async function adminChangePassword() {
+  const oldPass = document.getElementById('adm-old-pass').value;
+  const newPass = document.getElementById('adm-new-pass').value;
+  const newPass2 = document.getElementById('adm-new-pass2').value;
+  const errEl = document.getElementById('error-password');
+  const okEl = document.getElementById('save-password');
+  errEl.style.display = 'none';
+  okEl.style.display = 'none';
+
+  const oldOk = await checkAdminPassword(oldPass);
+  if (!oldOk) { errEl.textContent = '✗ Текущий пароль неверен.'; errEl.style.display = 'block'; return; }
+  if (newPass.length < 6) { errEl.textContent = '✗ Новый пароль должен содержать минимум 6 символов.'; errEl.style.display = 'block'; return; }
+  if (newPass !== newPass2) { errEl.textContent = '✗ Новые пароли не совпадают.'; errEl.style.display = 'block'; return; }
+
+  const newHash = await sha256(newPass);
+  localStorage.setItem(ADMIN_HASH_KEY, newHash);
+  // Save to Firebase
+  try {
+    const fb = await import('./firebase-db.js');
+    await fb.savePassword(newHash);
+  } catch(e) { console.warn('Password save error:', e); }
+  document.getElementById('adm-old-pass').value = '';
+  document.getElementById('adm-new-pass').value = '';
+  document.getElementById('adm-new-pass2').value = '';
+  okEl.style.display = 'block';
+  setTimeout(() => okEl.style.display = 'none', 2500);
+}
+
+// ============================================================
+// MENU FROM FIREBASE
+// ============================================================
+const DEFAULT_MENU_ITEMS = [
+  {id:'1', category:'breakfast', name:'Овсянка с ягодами и медом', desc:'Теплая овсянка с свежими ягодами, орехами и натуральным медом', price:250, img:'images/w.jpg'},
+  {id:'2', category:'breakfast', name:'Блины с творогом', desc:'Пышные блины с нежным творогом и сметаной', price:280, img:'images/bliny.jpg'},
+  {id:'3', category:'lunch', name:'Борщ по-домашнему', desc:'Настоящий борщ с говядиной, сметаной и чесночными пампушками', price:320, img:'images/borsh.jpg'},
+  {id:'4', category:'dinner', name:'Пельмени с говядиной', desc:'Домашние пельмени ручной лепки с сочной начинкой', price:350, img:'images/pelmeni.jpg'},
+  {id:'5', category:'desserts', name:'Нью-Йорк чизкейк', desc:'Классический чизкейк с ягодным соусом', price:290, img:'images/chizkek.jpg'}
+];
+
+function renderMenuItems(items) {
+  const container = document.getElementById('menuItemsContainer');
+  if (!container) return;
+  const activeFilter = document.querySelector('.menu-tab.active');
+  const filter = activeFilter ? activeFilter.getAttribute('data-filter') : 'all';
+  const filtered = filter === 'all' ? items : items.filter(function(i){ return i.category === filter; });
+  if (!filtered.length) {
+    container.innerHTML = '<div style="text-align:center;padding:40px;color:#999">Нет блюд в этой категории</div>';
+    return;
+  }
+  container.innerHTML = filtered.map(function(item) {
+    const imgHtml = item.img
+      ? '<img src="' + item.img + '" alt="' + item.name + '" onerror="this.src=\'images/w.jpg\'">'
+      : '<div style="width:100%;height:200px;background:linear-gradient(135deg,#e74c3c22,#f39c1222);display:flex;align-items:center;justify-content:center;font-size:40px">🍽️</div>';
+    return '<div class="menu-item active" data-category="' + item.category + '">' +
+      '<div class="menu-item-image">' + imgHtml + '</div>' +
+      '<div class="menu-item-info">' +
+      '<h3>' + item.name + '</h3>' +
+      '<p class="menu-item-desc">' + (item.desc||'') + '</p>' +
+      '<div class="menu-item-price">' +
+      '<span class="price">' + item.price + ' ₽</span>' +
+      '<button class="btn-add" data-id="' + item.id + '" data-name="' + item.name + '" data-price="' + item.price + '" data-img="' + (item.img||'') + '">Добавить</button>' +
+      '</div></div></div>';
+  }).join('');
+  // Re-attach cart listeners
+  attachAddToCartListeners();
+}
+
+window._currentMenuItems = DEFAULT_MENU_ITEMS;
+
+// Load menu from Firebase
+import('./firebase-db.js').then(function(fb) {
+  fb.listenMenu(function(items) {
+    if (items && items.length) {
+      window._currentMenuItems = items;
+      renderMenuItems(items);
+      localStorage.setItem('toni_menu', JSON.stringify(items));
+    }
+  });
+  fb.loadMenu().then(function(items) {
+    if (items && items.length) {
+      window._currentMenuItems = items;
+      renderMenuItems(items);
+      localStorage.setItem('toni_menu', JSON.stringify(items));
+    } else {
+      // First launch - save default to Firebase
+      fb.saveMenu(DEFAULT_MENU_ITEMS);
+      renderMenuItems(DEFAULT_MENU_ITEMS);
+    }
+  });
+}).catch(function(e) {
+  // Fallback: try localStorage, then default
+  const saved = localStorage.getItem('toni_menu');
+  const items = saved ? JSON.parse(saved) : DEFAULT_MENU_ITEMS;
+  window._currentMenuItems = items;
+  renderMenuItems(items);
+});
+
+// Initial render with default while Firebase loads
+renderMenuItems(DEFAULT_MENU_ITEMS);
+
+// Filter tabs click handler - override existing
+document.querySelectorAll('.menu-tab').forEach(function(tab) {
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.menu-tab').forEach(function(t){ t.classList.remove('active'); });
+    this.classList.add('active');
+    renderMenuItems(window._currentMenuItems || DEFAULT_MENU_ITEMS);
+  });
+});
+
+function attachAddToCartListeners() {
+  document.querySelectorAll('.btn-add').forEach(function(btn) {
+    btn.removeEventListener('click', btn._cartHandler);
+    btn._cartHandler = function() {
+      const id = this.getAttribute('data-id');
+      const name = this.getAttribute('data-name');
+      const price = parseInt(this.getAttribute('data-price'));
+      const img = this.getAttribute('data-img');
+      const existingItem = cart.find(function(item){ return item.id === id; });
+      if (existingItem) { existingItem.quantity++; }
+      else { cart.push({id:id, name:name, price:price, img:img, quantity:1}); }
+      renderCart(); updateCart();
+      const origText = this.textContent;
+      this.textContent = 'Добавлено! ❤️';
+      this.style.backgroundColor = '#27ae60';
+      const self = this;
+      setTimeout(function(){ self.textContent = origText; self.style.backgroundColor = ''; }, 1500);
+    };
+    btn.addEventListener('click', btn._cartHandler);
+  });
+}
+
+// ============================================================
+// ADMIN: ORDERS & BOOKINGS & MENU MANAGEMENT
+// ============================================================
+function initAdminFirebase() {
+  import('./firebase-db.js').then(function(fb) {
+    // Load orders
+    const ordSt = document.getElementById('orders-status');
+    const ordTb = document.getElementById('orders-tbody');
+    fb.listenOrders(function(orders) {
+      if (ordSt) ordSt.textContent = '✅ Firebase подключён · Заказов: ' + orders.length;
+      const total = orders.reduce(function(s,o){ return s+(o.total||0); }, 0);
+      const countEl = document.getElementById('ord-count');
+      const totalEl = document.getElementById('ord-total');
+      if (countEl) countEl.textContent = orders.length;
+      if (totalEl) totalEl.textContent = total.toLocaleString('ru') + ' ₽';
+      if (!ordTb) return;
+      if (!orders.length) { ordTb.innerHTML = '<tr><td colspan="8" style="text-align:center;padding:20px;color:#999">Заказов пока нет</td></tr>'; return; }
+      orders.sort(function(a,b){ return (b.createdAt&&b.createdAt.seconds||0)-(a.createdAt&&a.createdAt.seconds||0); });
+      ordTb.innerHTML = orders.map(function(o) {
+        const dt = o.createdAt&&o.createdAt.seconds ? new Date(o.createdAt.seconds*1000).toLocaleString('ru-RU') : '-';
+        const items = (o.items||[]).map(function(i){ return i.name+' x'+i.qty; }).join(', ');
+        return '<tr style="border-bottom:1px solid #f0f0f0">' +
+          '<td style="padding:10px;font-size:12px">'+dt+'</td>' +
+          '<td style="padding:10px"><b>'+o.name+'</b></td>' +
+          '<td style="padding:10px">'+o.phone+'</td>' +
+          '<td style="padding:10px;font-size:12px;max-width:180px">'+items+'</td>' +
+          '<td style="padding:10px;font-size:12px">'+(o.paymentLabel||o.payment||'-')+'</td>' +
+          '<td style="padding:10px"><b style="color:#e74c3c">'+(o.total||0).toLocaleString('ru')+' ₽</b></td>' +
+          '<td style="padding:10px"><span style="background:#27ae6022;color:#27ae60;padding:3px 8px;border-radius:8px;font-size:12px">Новый</span></td>' +
+          '<td style="padding:10px"><button onclick="adminDeleteOrder(\''+o.id+'\')" style="background:#ff6b6b;color:#fff;border:none;padding:4px 10px;border-radius:6px;cursor:pointer;font-size:12px">🗑 Удалить</button></td>' +
+          '</tr>';
+      }).join('');
+    });
+
+    // Load bookings
+    const bkSt = document.getElementById('bookings-status');
+    const bkTb = document.getElementById('bookings-tbody');
+    fb.listenBookings(function(bookings) {
+      if (bkSt) bkSt.textContent = '✅ Firebase подключён · Бронирований: ' + bookings.length;
+      if (!bkTb) return;
+      if (!bookings.length) { bkTb.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:20px;color:#999">Бронирований пока нет</td></tr>'; return; }
+      bookings.sort(function(a,b){ return (b.createdAt&&b.createdAt.seconds||0)-(a.createdAt&&a.createdAt.seconds||0); });
+      bkTb.innerHTML = bookings.map(function(b) {
+        const dt = b.createdAt&&b.createdAt.seconds ? new Date(b.createdAt.seconds*1000).toLocaleString('ru-RU') : '-';
+        return '<tr style="border-bottom:1px solid #f0f0f0">' +
+          '<td style="padding:10px;font-size:12px">'+dt+'</td>' +
+          '<td style="padding:10px"><b>'+b.name+'</b></td>' +
+          '<td style="padding:10px">'+b.phone+'</td>' +
+          '<td style="padding:10px;font-size:13px">'+(b.message||'-')+'</td>' +
+          '<td style="padding:10px"><button onclick="adminDeleteBooking(\''+b.id+'\')" style="background:#ff6b6b;color:#fff;border:none;padding:4px 10px;border-radius:6px;cursor:pointer;font-size:12px">🗑 Удалить</button></td>' +
+          '</tr>';
+      }).join('');
+    });
+
+    // Load menu for admin
+    loadAdminMenuList();
+  }).catch(function(e) {
+    const ordSt = document.getElementById('orders-status');
+    const bkSt = document.getElementById('bookings-status');
+    if (ordSt) ordSt.textContent = '⚠️ Firebase не настроен — вставьте firebaseConfig в firebase-db.js';
+    if (bkSt) bkSt.textContent = '⚠️ Firebase не настроен';
+  });
+}
+
+function adminDeleteOrder(id) {
+  if (!confirm('Удалить заказ?')) return;
+  import('./firebase-db.js').then(function(fb){ return fb.deleteOrder(id); }).catch(function(e){ alert('Ошибка: '+e.message); });
+}
+
+function adminDeleteBooking(id) {
+  if (!confirm('Удалить бронирование?')) return;
+  import('./firebase-db.js').then(function(fb){ return fb.deleteBooking(id); }).catch(function(e){ alert('Ошибка: '+e.message); });
+}
+
+function loadAdminMenuList() {
+  const listEl = document.getElementById('mi-list');
+  const countEl = document.getElementById('mi-count');
+  const items = window._currentMenuItems || DEFAULT_MENU_ITEMS;
+  if (countEl) countEl.textContent = '(' + items.length + ' блюд)';
+  if (!listEl) return;
+  if (!items.length) { listEl.innerHTML = '<p style="color:#999">Меню пусто</p>'; return; }
+  const catNames = {breakfast:'Завтраки',lunch:'Обеды',dinner:'Ужины',desserts:'Десерты',drinks:'Напитки'};
+  listEl.innerHTML = '<table style="width:100%;border-collapse:collapse">' +
+    '<thead><tr style="background:#f8f8f8;font-size:13px"><th style="padding:8px;text-align:left">Фото</th><th style="padding:8px;text-align:left">Название</th><th style="padding:8px;text-align:left">Категория</th><th style="padding:8px;text-align:left">Цена</th><th style="padding:8px;text-align:left">Удалить</th></tr></thead><tbody>' +
+    items.map(function(item) {
+      const img = item.img ? '<img src="'+item.img+'" style="width:45px;height:45px;object-fit:cover;border-radius:7px" onerror="this.style.display='none'">' : '🍽️';
+      return '<tr style="border-bottom:1px solid #f0f0f0">' +
+        '<td style="padding:8px">'+img+'</td>' +
+        '<td style="padding:8px"><b>'+item.name+'</b><br><small style="color:#999">'+item.desc.slice(0,40)+'</small></td>' +
+        '<td style="padding:8px"><span style="background:#f0f0f0;padding:3px 8px;border-radius:8px;font-size:12px">'+(catNames[item.category]||item.category)+'</span></td>' +
+        '<td style="padding:8px"><b style="color:#e74c3c">'+item.price+' ₽</b></td>' +
+        '<td style="padding:8px"><button onclick="adminDeleteMenuItem(\''+item.id+'\')" style="background:#ff6b6b;color:#fff;border:none;padding:4px 10px;border-radius:6px;cursor:pointer;font-size:12px">🗑</button></td>' +
+        '</tr>';
+    }).join('') + '</tbody></table>';
+}
+
+function adminDeleteMenuItem(id) {
+  if (!confirm('Удалить блюдо из меню?')) return;
+  const items = (window._currentMenuItems || DEFAULT_MENU_ITEMS).filter(function(i){ return i.id !== id; });
+  window._currentMenuItems = items;
+  import('./firebase-db.js').then(function(fb){ return fb.saveMenu(items); }).catch(function(e){ console.warn(e); });
+  renderMenuItems(items);
+  loadAdminMenuList();
+}
+
+function adminAddMenuItem() {
+  const name = document.getElementById('mi-name').value.trim();
+  const cat = document.getElementById('mi-cat').value;
+  const desc = document.getElementById('mi-desc').value.trim();
+  const price = parseInt(document.getElementById('mi-price').value);
+  const img = document.getElementById('mi-img').value.trim();
+  if (!name || !cat || isNaN(price)) { alert('Заполните: название, категория, цена'); return; }
+  const items = window._currentMenuItems || [];
+  const newId = 'mi_' + Date.now();
+  items.push({id:newId, category:cat, name:name, desc:desc, price:price, img:img});
+  window._currentMenuItems = items;
+  import('./firebase-db.js').then(function(fb){ return fb.saveMenu(items); }).catch(function(e){ console.warn(e); });
+  renderMenuItems(items);
+  loadAdminMenuList();
+  ['mi-name','mi-desc','mi-price','mi-img'].forEach(function(id){ document.getElementById(id).value=''; });
+  document.getElementById('mi-preview').style.display = 'none';
+  const ok = document.getElementById('mi-success');
+  ok.style.display='inline'; setTimeout(function(){ ok.style.display='none'; }, 2500);
+}
+
+function adminUploadPhoto(fileInput, imgId, btnId, prevId) {
+  const file = fileInput.files[0];
+  if (!file) return;
+  const btn = document.getElementById(btnId);
+  const orig = btn.textContent;
+  btn.textContent = '⏳ Загружаем...';
+  btn.style.pointerEvents = 'none';
+  import('./firebase-db.js').then(function(fb){ return fb.uploadPhoto(file); }).then(function(url) {
+    document.getElementById(imgId).value = url;
+    const prev = document.getElementById(prevId);
+    if (prev) {
+      prev.style.display = 'block';
+      let img = prev.querySelector('img');
+      if (!img) { img = document.createElement('img'); prev.appendChild(img); }
+      img.src = url;
+      img.style.cssText = 'width:70px;height:70px;object-fit:cover;border-radius:8px';
+    }
+    btn.textContent = '✅ Готово!';
+    btn.style.background = '#27ae60';
+    setTimeout(function(){ btn.textContent=orig; btn.style.background=''; btn.style.pointerEvents=''; }, 2000);
+  }).catch(function(e) {
+    btn.textContent = '❌ Ошибка';
+    btn.style.background = '#e53935';
+    setTimeout(function(){ btn.textContent=orig; btn.style.background=''; btn.style.pointerEvents=''; }, 3000);
+    alert('Ошибка загрузки фото: ' + e.message);
+  });
+}
+
+// Call initAdminFirebase when admin panel opens
+document.getElementById('adminLoginSubmit').addEventListener('click', async function() {
+  // (existing login check happens first via other listener)
+}, {capture: false});
+
+// Patch admin panel open to init Firebase data
+const origAdminOpen = document.getElementById('adminPanelOverlay');
+if (origAdminOpen) {
+  const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(m) {
+      if (m.target.classList.contains('active') && !window._adminFbInited) {
+        window._adminFbInited = true;
+        initAdminFirebase();
+      }
+    });
+  });
+  observer.observe(origAdminOpen, { attributes: true, attributeFilter: ['class'] });
+}
+
+</script>
+</body>
+</html>
